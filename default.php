@@ -1,5 +1,7 @@
 <?
 $host=$_SERVER['HTTP_HOST'];
+
+
 /*
 Directory Listing Script - Version 2
 ====================================
