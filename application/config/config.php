@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url']	= 'http://http://top-news.netau.net/';
+$config['base_url']	= 'http://top-news.netau.net/';
 #added manually
 $config['server_root'] = $_SERVER['DOCUMENT_ROOT'];
 
