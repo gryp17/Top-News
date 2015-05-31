@@ -6,18 +6,18 @@ create table category(
 
 create table user(
     ID int AUTO_INCREMENT primary key,
+    email varchar(100),
     username varchar(50),
     password varchar(50),
     avatar varchar(100),
     type varchar(30),
     registered datetime,
-    active int,
-    comments int
+    active int
 );
 
 create table article(
     ID int AUTO_INCREMENT primary key,
-    name varchar(200),
+    title varchar(200),
     summary varchar(500),
     content MEDIUMTEXT,
     image_path varchar(500),
@@ -38,3 +38,13 @@ create table comment(
     constraint fk_comment_author foreign key(authorID) references user (ID),
     constraint fk_commect_article foreign key(articleID) references article (ID)
 );
+
+
+insert into category (name, description) values("politics", "none");
+insert into category (name, description) values("world", "none");
+insert into category (name, description) values("technology", "none");
+insert into category (name, description) values("economy", "none");
+insert into category (name, description) values("sport", "none");
+
+
+insert into user (email, username, password, avatar, type, registered, active) values ("skate_mania2abv.bg" ,"admin", "1234", "none", "admin", now(), 1);
