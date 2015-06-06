@@ -1,0 +1,33 @@
+*{
+    padding: 0px !important;
+    margin: 0px;
+}
+.row{
+    margin: 0px;
+}
+.center{
+    margin: auto;
+}
+
+.center-text{
+    text-align: center;
+}
+
+body{
+    background: url(../img/bg.jpg) no-repeat fixed;
+    background-size: cover;
+}
+#main-wrapper{
+    width: 1000px;
+    min-height: 500px;
+    background: rgba(255, 255, 255, 0.9);
+}
+#logo-wrapper img{
+    width: 100px;
+}
+.menu-item{
+    width: 163px;
+    height: 100px;
+    display: inline-block;
+    border: 1px solid #000;
+}
