@@ -1,0 +1,53 @@
+@media screen and (max-width: 1000px){
+    #main-wrapper{
+        width: 100%;
+    }
+}
+
+/* HEADER/MENU */
+@media (max-width: 1002px){
+
+    #responsive-menu{
+        text-align: center;
+    }
+
+    #menu-options{
+        display: none;
+    }
+
+    .menu-option{
+        margin: 0px;
+        display: block;
+    }
+
+    #hamburger-button{
+        display: inline-block;
+    }
+    
+    
+    .menu-option{
+        width: 100%;
+        text-align: left;
+        height: 60px;
+        padding: 5px;
+    }
+    
+    .menu-option img {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0px;
+    }
+}
+
+@media (min-width: 1002px){
+    #menu-options{
+        display: inline-block !important;
+    }
+}
+
+@media (max-width: 500px){
+    #responsive-menu{
+        text-align: left;
+    }
+}
+
