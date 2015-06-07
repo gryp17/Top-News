@@ -2,6 +2,14 @@
     padding: 0px;
     margin: 0px;
 }
+
+@font-face {
+    font-family: 'MoolBoran';
+    src: url('<?php echo base_url(); ?>fonts/MoolBoran.ttf'), format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .row{
     margin: 0px;
 }
@@ -20,6 +28,7 @@
 body{
     background: url(../img/bg.jpg) no-repeat fixed;
     background-size: cover;
+    font-family: 'MoolBoran', sans-serif;
 }
 #main-wrapper{
     width: 1000px;
@@ -58,7 +67,7 @@ body{
     height: 100px;
     line-height: 35px;
     display: inline-block;
-    font-size: 18px;
+    font-size: 28px;
     color: #FFFFFF;
 }
 
@@ -77,7 +86,6 @@ body{
 .menu-option img{
     display: block;
     margin-top: 15px;
-    margin-bottom: -10px;
 }
 
 #hamburger-button{
@@ -110,4 +118,79 @@ body{
 
 .menu-option:nth-child(5){
     background-color: #0097A5;
+}
+
+#currency-exchange{
+    background: #0097A5;
+    min-height: 30px;
+}
+
+#top-ad{
+    margin-top: 10px;
+    min-height: 70px;
+    background: #2586E5;
+}
+
+#articles-wrapper{
+    text-align: center;
+}
+
+.article-box{
+    width: 47%;
+    display: inline-block;
+    margin: 15px 9px 15px 9px;
+    min-height: 300px;
+    vertical-align: top;
+    color: #6A6869;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
+    box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
+}
+
+.article-img{
+    background: #2586E5;
+    min-height: 150px;
+}
+
+.article-title{
+    text-align: center;
+    font-size: 22px;
+}
+
+.article-summary{
+    text-align: justify;
+    font-size: 15px;
+    padding: 3px 15px 3px 15px;
+}
+
+.read-more-btn{
+    float: right;
+    margin-top: 5px;
+    margin-right: 15px;
+    padding: 5px 10px 5px 10px;
+    background: #D9D9D9;
+    color: #00579A;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
+    box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
+}
+.read-more-btn:hover{
+    text-decoration: none;
+}
+
+#user-menu{
+    font-size: 28px;
+    color: #0B6490;
+}
+
+#user-login, #user-signup{
+    padding: 0px;
+    text-align: center;
+}
+
+#top-news, #aside-ad, #questionnaire{
+    margin-bottom: 20px;
+    min-height: 200px;
+    background: #366778;
 }

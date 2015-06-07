@@ -1,5 +1,6 @@
          
         <!-- CSS -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
         <link href="<?php echo base_url(); ?>include/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>include/style.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>include/queries.css" rel="stylesheet" type="text/css"/>
