@@ -16,7 +16,7 @@
             <div class="row">
                 <section id="content-wrapper" class="col-sm-8">
                     <div id="currency-exchange">
-
+                        <?php include 'templates/currencies_ticker.php'; ?>
                     </div>
                     <div id="top-ad">
 
