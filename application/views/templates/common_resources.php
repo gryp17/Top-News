@@ -8,5 +8,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>include/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>include/bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>include/angular.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>include/angular-route.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>include/ng/app.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>include/scripts.js"></script>
 
