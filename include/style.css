@@ -62,7 +62,7 @@ body{
 }
 
 .menu-option {
-    margin-left: -3px;
+    margin-left: -1px;
     width: 171px;
     height: 100px;
     line-height: 35px;
@@ -121,12 +121,15 @@ body{
 }
 
 #currency-exchange{
-    background: #0097A5;
-    min-height: 30px;
+    min-height: 40px;
+    padding: 0px;
+}
+
+#currency-exchange iframe{
+    display: none;
 }
 
 #top-ad{
-    margin-top: 10px;
     min-height: 70px;
     background: #2586E5;
 }
