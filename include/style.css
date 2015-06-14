@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'MoolBoran';
-    src: url('<?php echo base_url(); ?>fonts/MoolBoran.ttf'), format('truetype');
+    src: url('<?php echo base_url(); ?>include/fonts/MoolBoran.ttf'), format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,6 +30,7 @@ body{
     background-size: cover;
     font-family: 'MoolBoran', sans-serif;
 }
+
 #main-wrapper{
     width: 1000px;
     min-height: 500px;
@@ -62,6 +63,7 @@ body{
 }
 
 .menu-option {
+    outline: none;
     margin-left: -1px;
     width: 171px;
     height: 100px;
@@ -135,36 +137,59 @@ body{
 }
 
 #articles-wrapper{
+    display: none;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .article-box{
-    width: 47%;
+    width: 46%;
     display: inline-block;
     margin: 15px 9px 15px 9px;
-    min-height: 300px;
+    min-height: 400px;
     vertical-align: top;
     color: #6A6869;
-    font-family: 'Open Sans', sans-serif;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
     -moz-box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
     box-shadow: 0px 0px 15px 0px rgba(122,121,122,1);
 }
 
 .article-img{
-    background: #2586E5;
     min-height: 150px;
+    position: relative;
+}
+
+.section-box{
+    position: absolute;
+    background: rgba(0,0,0,0.2);
+    padding: 2px 10px;
+    width: 100%;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
 }
 
 .article-title{
-    text-align: center;
-    font-size: 22px;
+    text-align: justify;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 15px 0px 15px;
+    min-height: 90px;
+}
+
+.article-title a{
+    color: #00579A;
+}
+
+.article-summary a{
+    color: #6A6869;
 }
 
 .article-summary{
     text-align: justify;
     font-size: 15px;
-    padding: 3px 15px 3px 15px;
+    padding: 3px 15px;
+    min-height: 90px;
 }
 
 .read-more-btn{
@@ -180,6 +205,10 @@ body{
 }
 .read-more-btn:hover{
     text-decoration: none;
+}
+
+#archive-link{
+    font-size: 17px;
 }
 
 #user-menu{

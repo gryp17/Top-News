@@ -14,17 +14,18 @@ app.config(['$routeProvider',
 app.controller("homeController", function ($scope, $routeParams, $http) {
     //this.items = products;
 
-    var responsePromise = $http.get("/ajax/test/?bla=1234");
-
-    responsePromise.success(function (data, status, headers, config) {
-        console.log("result is " + data);
-        $scope.result = data;
+    var response = $http.get("/ajax/getLatestArticles/?limit=6");
+    response.success(function (data, status, headers, config) {
+        $scope.articles_data = data;
+        $("#loading-wrapper").fadeOut(200, function () {
+            $("#articles-wrapper").fadeIn(500);
+        });
     });
-    responsePromise.error(function (data, status, headers, config) {
+
+    response.error(function (data, status, headers, config) {
         alert("AJAX failed!");
     });
 
-    this.order = "sfafsafsafafsa";
 });
 
 
