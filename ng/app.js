@@ -5,9 +5,9 @@ app.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
                 .when('/articles/:section_name', {
-                    templateUrl: '/CI/application/views/partials/articles.php',
+                    templateUrl: '/app/views/partials/articles.php',
                 }).otherwise({
-            templateUrl: '/CI/application/views/partials/home.php',
+            templateUrl: '/app/views/partials/home.php',
         });
     }]);
 

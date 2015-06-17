@@ -1,7 +1,7 @@
 app.controller("homeController", function ($scope, $routeParams, $http) {
     //this.items = products;
 
-    var response = $http.get("/ajax/getLatestArticles/?limit=6");
+    var response = $http.get("/API/getLatestArticles");
     response.success(function (data, status, headers, config) {
         $scope.articles_data = data;
         $("#loading-wrapper").fadeOut(200, function () {
