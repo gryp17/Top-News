@@ -14,7 +14,8 @@
             <?php include 'templates/header.php'; ?>
             <br/>
             <div class="row">
-                <section id="content-wrapper" class="col-sm-8">
+                <?php include 'templates/aside.php'; ?>
+                <section id="content-wrapper" class="col-sm-8 col-sm-pull-4">
                     <div id="currency-exchange">
                         <?php include 'templates/currencies_ticker.php'; ?>
                     </div>
@@ -25,8 +26,8 @@
                         
                     </div>
                 </section>
-                <?php include 'templates/aside.php'; ?>
             </div>
+            <?php include 'templates/footer.php'; ?>
         </div>
     </body>
 </html>

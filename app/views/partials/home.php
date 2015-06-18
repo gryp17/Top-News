@@ -23,5 +23,5 @@
             </a>
         </article>
 
-    <a href="#" id="archive-link">View Archive</a>
+    <a href="#/archive" id="archive-link">View Archive</a>
 </div>

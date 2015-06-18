@@ -4,6 +4,16 @@
     }
 }
 
+@media screen and (max-width: 768px){
+    .aside-box{
+        display: none;
+    }
+    
+    #currency-exchange{
+        margin-top: 15px;
+    }
+}
+
 /* HEADER/MENU */
 @media (max-width: 1002px){
 

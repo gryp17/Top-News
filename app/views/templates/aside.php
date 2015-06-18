@@ -1,4 +1,4 @@
-<aside class="col-sm-4">
+<aside class="col-sm-4 col-sm-push-8">
     <div id="user-menu" class="row">
         <div id="user-login" class="col-xs-6">
             Login <img src="/img/login-icon.png"/>
@@ -7,13 +7,13 @@
             Sign Up <img src="/img/signup-icon.png"/>
         </div>
     </div>
-    <div id="top-news">
+    <div id="aside-box1" class="aside-box">
 
     </div>
-    <div id="aside-ad">
+    <div id="aside-box2" class="aside-box">
 
     </div>
-    <div id="questionnaire">
+    <div id="aside-box3" class="aside-box">
 
     </div>
 </aside>

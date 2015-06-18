@@ -12,5 +12,6 @@
         <script type="text/javascript" src="/ng/app.js"></script>
         <script type="text/javascript" src="/ng/controllers/home.js"></script>
         <script type="text/javascript" src="/ng/controllers/articles.js"></script>
+        <script type="text/javascript" src="/ng/controllers/archive.js"></script>
         <script type="text/javascript" src="/include/scripts.js"></script>
 

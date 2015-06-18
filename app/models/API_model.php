@@ -25,11 +25,13 @@ class API_model {
         return self::$instance;
     }
 
-    public function getLatestArticles($limit) {
-
+    public function getArticles($limit, $offset) {
         $data = array();
         
-        $query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID order by date desc limit $limit");
+        $limit = (int) $limit;
+        $offset = (int) $offset;
+        
+        $query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID order by date desc limit $limit offset $offset");
         $query->execute();
         
         while ($row = $query->fetch()) {

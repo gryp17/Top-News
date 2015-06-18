@@ -28,7 +28,7 @@
 body{
     background: url(../img/bg.jpg) no-repeat fixed;
     background-size: cover;
-    font-family: 'MoolBoran', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #main-wrapper{
@@ -65,11 +65,11 @@ body{
 .menu-option {
     outline: none;
     margin-left: -1px;
-    width: 171px;
+    width: 169px;
     height: 100px;
     line-height: 35px;
     display: inline-block;
-    font-size: 28px;
+    font-size: 21px;
     color: #FFFFFF;
 }
 
@@ -100,6 +100,7 @@ body{
 }
 #hamburger-button span{
     font-size: 25px;
+    top: 4px;
 }
 
 .menu-option:nth-child(1){
@@ -139,7 +140,6 @@ body{
 #articles-wrapper{
     display: none;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
 }
 
 .article-box{
@@ -212,7 +212,7 @@ body{
 }
 
 #user-menu{
-    font-size: 28px;
+    font-size: 19px;
     color: #0B6490;
 }
 
@@ -221,8 +221,15 @@ body{
     text-align: center;
 }
 
-#top-news, #aside-ad, #questionnaire{
-    margin-bottom: 20px;
+.aside-box{
+    margin-top: 12px;
     min-height: 200px;
     background: #366778;
+}
+
+footer.row{
+    background: rgba(0,0,0,0.1);
+    margin-top: 15px;
+    min-height: 50px;
+    line-height: 50px;
 }
