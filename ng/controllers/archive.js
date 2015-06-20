@@ -24,7 +24,7 @@ app.controller("archiveController", function ($scope, $routeParams, $http) {
 
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop() + 500;
-        var footerPosition = $("footer").offset().top - 200;
+        var footerPosition = $("footer").offset().top - 400;
 
         if (scrollTop > footerPosition && loading == false) {
             offset = offset + 6;

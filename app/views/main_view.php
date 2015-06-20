@@ -22,6 +22,7 @@
                     <div id="top-ad">
 
                     </div>
+                    <?php include 'templates/search_bar.php'; ?>
                     <div ng-view="">                        
                         
                     </div>

@@ -13,5 +13,7 @@
         <script type="text/javascript" src="/ng/controllers/home.js"></script>
         <script type="text/javascript" src="/ng/controllers/articles.js"></script>
         <script type="text/javascript" src="/ng/controllers/archive.js"></script>
+        <script type="text/javascript" src="/ng/controllers/search.js"></script>
+        <script type="text/javascript" src="/ng/controllers/search_service.js"></script>
         <script type="text/javascript" src="/include/scripts.js"></script>
 

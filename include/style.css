@@ -137,13 +137,21 @@ body{
     background: #2586E5;
 }
 
+#search-bar{
+    margin-top: 10px;
+}
+
 #articles-wrapper{
     display: none;
-    text-align: center;
+    text-align: left;
+}
+
+#not-found{
+    display: none;
 }
 
 .article-box{
-    width: 46%;
+    width: 47%;
     display: inline-block;
     margin: 15px 9px 15px 9px;
     min-height: 400px;
@@ -209,6 +217,8 @@ body{
 
 #archive-link{
     font-size: 17px;
+    display: block;
+    text-align: center;
 }
 
 #user-menu{
