@@ -5,11 +5,11 @@ app.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
                 .when('/articles/:section_name', {
-                    templateUrl: '/app/views/partials/articles.php',
+                    templateUrl: 'app/views/partials/articles.php',
                 }).when('/archive', {
-                    templateUrl: '/app/views/partials/archive.php',
+                    templateUrl: 'app/views/partials/archive.php',
                 }).otherwise({
-            templateUrl: '/app/views/partials/home.php',
+            templateUrl: 'app/views/partials/home.php',
         });
     }]);
 

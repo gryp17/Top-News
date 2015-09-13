@@ -1,5 +1,5 @@
 <div id="loading-wrapper" class="row">
-    <img class="img-responsive center" src="/img/loading.gif"/>
+    <img class="img-responsive center" src="img/loading.gif"/>
 </div>
 
 <div id="articles-wrapper" class="row" ng-controller="homeController as home">
@@ -11,7 +11,7 @@
         <div class="article-img">
             <a href="#/article/{{article.ID}}">
                 <div class="section-box">{{article.category_name| uppercase}}</div>
-                <img class="img-responsive center" ng-src="/res/articles/img/{{article.image_path}}"/>
+                <img class="img-responsive center" ng-src="res/articles/img/{{article.image_path}}"/>
             </a>
         </div>
         <div class="article-title">

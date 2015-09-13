@@ -12,7 +12,7 @@ app.controller("searchController", function ($scope, $routeParams, $http, Scopes
             var search_val = $("#search_value").val();
             if (search_val.trim().length >= 3) {
                 search_val = encodeURIComponent(search_val);
-                var response = $http.get("/API/getArticlesBySearch/"+search_val);
+                var response = $http.get("API/getArticlesBySearch/"+search_val);
                 response.success(function (data, status, headers, config) {
                     console.log(data["error"]);
                     if (data["error"] != undefined) {

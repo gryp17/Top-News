@@ -1,10 +1,10 @@
 <aside class="col-sm-4 col-sm-push-8">
     <div id="user-menu" class="row">
         <div id="user-login" class="col-xs-6">
-            Login <img src="/img/login-icon.png"/>
+            Login <img src="img/login-icon.png"/>
         </div>
         <div id="user-signup" class="col-xs-6">
-            Sign Up <img src="/img/signup-icon.png"/>
+            Sign Up <img src="img/signup-icon.png"/>
         </div>
     </div>
     <div id="aside-box1" class="aside-box">

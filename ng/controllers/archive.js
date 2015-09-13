@@ -2,7 +2,7 @@ app.controller("archiveController", function ($scope, $routeParams, $http) {
 
     $("body").scrollTop(0);
 
-    var response = $http.get("/API/getArticles");
+    var response = $http.get("API/getArticles");
     response.success(function (data, status, headers, config) {
         $scope.articles_data = data;
         $("#loading-wrapper").fadeOut(200, function () {
@@ -30,7 +30,7 @@ app.controller("archiveController", function ($scope, $routeParams, $http) {
             offset = offset + 6;
             loading = true;
             
-            var response = $http.get("/API/getArticles/" + limit + "/" + offset);
+            var response = $http.get("API/getArticles/" + limit + "/" + offset);
             response.success(function (data, status, headers, config) {
                 loading = false;
                 

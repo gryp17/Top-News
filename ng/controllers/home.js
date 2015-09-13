@@ -1,6 +1,6 @@
 app.controller("homeController", function ($scope, $routeParams, $http, Scopes) {
     
-    var response = $http.get("/API/getArticles");
+    var response = $http.get("API/getArticles");
     response.success(function (data, status, headers, config) {
         $scope.articles_data = data;
         Scopes.set('articles_data', $scope.articles_data);
