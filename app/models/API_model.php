@@ -11,7 +11,7 @@ class API_model {
             #$dsn = "mysql:host=mysql7.000webhost.com;dbname=a5166961_newsdb";
             #$user = 'a5166961_admin';
             #$password = 'p123456';
-			$dsn = "mysql:host=localhost;dbname=topnews";
+			$dsn = "mysql:host=localhost;dbname=tn";
 			$user = 'root';
 			$password = '1234';
             $this->connection = new PDO($dsn, $user, $password, $opc);
