@@ -1,29 +1,12 @@
 <?php
-require 'app/config/Config.php';
+require 'app/core/DB.php';
 
 class API_model {
 
-    private static $instance = null;
     private $connection;
 	
-    private function __construct() {	
-        try {
-            $opc = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
-			$dsn = 'mysql:host='.Config::DB_HOST.';dbname='.Config::DB_NAME;
-			$user = Config::DB_USER;
-			$password = Config::DB_PASS;
-            $this->connection = new PDO($dsn, $user, $password, $opc);
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-    }
-
-    public static function getInstance() {
-        if (self::$instance == null) {
-            self::$instance = new API_model();
-        }
-
-        return self::$instance;
+    public function __construct() {	
+		$this->connection = DB::getInstance()->connection;
     }
 
     public function getArticles($limit, $offset) {
