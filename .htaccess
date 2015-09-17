@@ -2,7 +2,7 @@ Options -MultiViews
 RewriteEngine On
 
 #change this when moving to another domain
-RewriteBase /Top-News
+RewriteBase /TN
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
