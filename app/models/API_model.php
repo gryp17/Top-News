@@ -1,19 +1,17 @@
 <?php
+require 'app/config/Config.php';
 
 class API_model {
 
     private static $instance = null;
     private $connection;
-
-    private function __construct() {
+	
+    private function __construct() {	
         try {
             $opc = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
-            #$dsn = "mysql:host=mysql7.000webhost.com;dbname=a5166961_newsdb";
-            #$user = 'a5166961_admin';
-            #$password = 'p123456';
-			$dsn = "mysql:host=localhost;dbname=tn";
-			$user = 'root';
-			$password = '1234';
+			$dsn = 'mysql:host='.Config::DB_HOST.';dbname='.Config::DB_NAME;
+			$user = Config::DB_USER;
+			$password = Config::DB_PASS;
             $this->connection = new PDO($dsn, $user, $password, $opc);
         } catch (Exception $e) {
             die($e->getMessage());
