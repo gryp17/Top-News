@@ -13,23 +13,22 @@ app.controller("searchController", function ($scope, $routeParams, $http, Scopes
             if (search_val.trim().length >= 3) {
                 search_val = encodeURIComponent(search_val);
                 var response = $http.get("API/getArticlesBySearch/"+search_val);
-                response.success(function (data, status, headers, config) {
-                    console.log(data["error"]);
-                    if (data["error"] != undefined) {
-                        $("#not-found").fadeIn(500);
-                        data = [];
-                        $(".article-box, #archive-link").fadeOut(1);
-                    }
-                    else{
-                        $("#archive-link, .article-box").fadeIn(1);
+                response.success(function (result, status, headers, config) {
+					
+					//if the status is success and there are articles
+					if(result.status == 1 && result.data.length > 0){
+						$("#archive-link, .article-box").fadeIn(1);
                         $("#not-found").fadeOut(1);
-                    }
+					}else{
+						$("#not-found").fadeIn(500);
+                        $(".article-box, #archive-link").fadeOut(1);
+					}
 
-                    Scopes.set('articles_data', data);
-                    console.log(data);
+                    Scopes.set('articles_data', result.data);
+                    console.log(result);
                 });
 
-                response.error(function (data, status, headers, config) {
+                response.error(function (result, status, headers, config) {
                     alert("AJAX failed!");
                 });
             }

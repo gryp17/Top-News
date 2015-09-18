@@ -1,6 +1,6 @@
 <?php
 
-class Articles_model extends Model{
+class Articles_model {
 
     private $connection;
 	
@@ -21,7 +21,7 @@ class Articles_model extends Model{
             $data[] = $row;
         }
 
-        return json_encode($data);
+        return $data;
     }
 
     public function getArticlesBySearch($search_value) {
@@ -35,13 +35,8 @@ class Articles_model extends Model{
             $data[] = $row;
         }
 
-        if (count($data) == 0) {
-            $data = array("error" => "No articles found");
-        }
-
-        return json_encode($data);
+		return $data;
     }
 
 }
 
-//select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID and title like "%obama%" order by date desc
