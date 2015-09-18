@@ -1,7 +1,6 @@
 <?php
-require 'app/core/DB.php';
 
-class API_model {
+class Articles_model extends Model{
 
     private $connection;
 	

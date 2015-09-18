@@ -1,5 +1,4 @@
 <?php
-require 'app/config/Config.php';
 
 class DB {
 
