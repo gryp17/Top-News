@@ -1,4 +1,4 @@
-app.controller("archiveController", function ($scope, $routeParams, $http) {
+app.controller("archiveController", function ($rootScope, $scope, $routeParams, $http) {
 
 	$("body").scrollTop(0);
 
@@ -6,7 +6,7 @@ app.controller("archiveController", function ($scope, $routeParams, $http) {
 	response.success(function (result, status, headers, config) {
 
 		if (result.status == 1) {
-			$scope.articles_data = result.data;
+			$rootScope.articles_data = result.data;
 			$("#loading-wrapper").fadeOut(200, function () {
 				$("#articles-wrapper").fadeIn(500);
 			});
@@ -43,7 +43,7 @@ app.controller("archiveController", function ($scope, $routeParams, $http) {
 				if (result.status == 1) {
 					//push the articles in articles array
 					for (var i = 0; i < result.data.length; i++) {
-						$scope.articles_data.push(result.data[i]);
+						$rootScope.articles_data.push(result.data[i]);
 					}
 				}
 

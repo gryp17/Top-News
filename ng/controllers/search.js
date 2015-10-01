@@ -1,4 +1,4 @@
-app.controller("searchController", function ($scope, $routeParams, $http, Scopes) {
+app.controller("searchController", function ($rootScope, $scope, $routeParams, $http) {
 
     var timer;
     $("#search_value").keyup(function () {
@@ -24,8 +24,7 @@ app.controller("searchController", function ($scope, $routeParams, $http, Scopes
                         $(".article-box, #archive-link").fadeOut(1);
 					}
 
-                    Scopes.set('articles_data', result.data);
-                    console.log(result);
+					$rootScope.articles_data = result.data;
                 });
 
                 response.error(function (result, status, headers, config) {
@@ -36,15 +35,6 @@ app.controller("searchController", function ($scope, $routeParams, $http, Scopes
         }, 1000);
     });
 
-//    setTimeout(function () {
-//        var articles_data = Scopes.get('articles_data')
-//
-//        console.log(articles_data);
-//        articles_data = [];
-//
-//        Scopes.set('articles_data', articles_data);
-//
-//    }, 5000);
 
 
 });
