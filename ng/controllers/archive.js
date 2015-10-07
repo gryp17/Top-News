@@ -1,5 +1,8 @@
-app.controller("archiveController", function ($rootScope, $scope, $routeParams, $http) {
-
+app.controller("archiveController", function ($rootScope, $scope, $routeParams, $http, searchService) {
+	
+	//remove the text from the search input
+	searchService.setSearchVal('');
+	
 	$("body").scrollTop(0);
 
 	var response = $http.get("API/getArticles");
@@ -29,6 +32,13 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 	var loading = false;
 
 	$(window).scroll(function () {
+		
+		//don't load more articles if there is an active search
+		var search_val = searchService.getSearchVal();
+		if(search_val.length >= 3){
+			return false;
+		}
+		
 		var scrollTop = $(window).scrollTop() + 500;
 		var footerPosition = $("footer").offset().top - 400;
 

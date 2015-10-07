@@ -10,6 +10,7 @@
         <script type="text/javascript" src="include/angular.min.js"></script>
         <script type="text/javascript" src="include/angular-route.min.js"></script>
         <script type="text/javascript" src="ng/app.js"></script>
+		<script type="text/javascript" src="ng/services/search_service.js"></script>
         <script type="text/javascript" src="ng/controllers/home.js"></script>
         <script type="text/javascript" src="ng/controllers/articles.js"></script>
         <script type="text/javascript" src="ng/controllers/archive.js"></script>

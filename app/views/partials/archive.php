@@ -3,7 +3,10 @@
 </div>
 
 <div id="articles-wrapper" class="row" ng-controller="archiveController as archive">
-
+	<br>
+	<div id="not-found" class="center-text">
+        No articles found.
+    </div>
     <article class="article-box" ng-repeat="article in articles_data">
         <div class="article-img">
             <a href="#/article/{{article.ID}}">
