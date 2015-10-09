@@ -1,4 +1,4 @@
-app.controller("searchController", function($rootScope, $scope, $routeParams, $http, searchService) {
+app.controller("searchController", function($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
 	
 	$scope.timer;
 	$scope.search = function() {
@@ -19,12 +19,12 @@ app.controller("searchController", function($rootScope, $scope, $routeParams, $h
 
 				//if nothing is written in the input get the latest articles
 				if (search_val.length === 0) {
-					response = $http.get("API/getArticles" + search_val);
+					response = APIservice.getArticles();
+					//response = $http.get("API/getArticles");
 				}
 				//otherwise search
 				else {
-					search_val = encodeURIComponent(search_val);
-					response = $http.get("API/getArticlesBySearch/" + search_val);
+					response = APIservice.getArticlesBySearch(search_val);
 				}
 
 				response.success(function(result, status, headers, config) {
@@ -41,9 +41,6 @@ app.controller("searchController", function($rootScope, $scope, $routeParams, $h
 					$rootScope.articles_data = result.data;
 				});
 
-				response.error(function(result, status, headers, config) {
-					alert("AJAX failed!");
-				});
 			}
 
 		}, 1000);

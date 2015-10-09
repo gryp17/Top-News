@@ -1,27 +1,24 @@
-app.controller("archiveController", function ($rootScope, $scope, $routeParams, $http, searchService) {
+app.controller("archiveController", function ($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
 	
 	//remove the text from the search input
 	searchService.setSearchVal('');
 	
 	$("body").scrollTop(0);
-
-	var response = $http.get("API/getArticles");
-	response.success(function (result, status, headers, config) {
-
-		if (result.status == 1) {
+	
+	
+	//get the first batch of articles
+	var response = APIservice.getArticles();
+	response.success(function(result, status, headers, config) {
+		if (result.status === 1) {
 			$rootScope.articles_data = result.data;
-			$("#loading-wrapper").fadeOut(200, function () {
+			$("#loading-wrapper").fadeOut(200, function() {
 				$("#articles-wrapper").fadeIn(500);
 			});
 		} else {
 			console.log(result.error);
 		}
-
 	});
-
-	response.error(function (result, status, headers, config) {
-		alert("AJAX failed!");
-	});
+	
 
 
 	//Lazy Loading Effect
@@ -31,6 +28,8 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 	//prevent infinite loading
 	var loading = false;
 
+
+	//on window scroll get more articles with lazy loading
 	$(window).scroll(function () {
 		
 		//don't load more articles if there is an active search
@@ -46,22 +45,19 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 			offset = offset + 6;
 			loading = true;
 
-			var response = $http.get("API/getArticles/" + limit + "/" + offset);
+			var response = APIservice.getArticles(limit, offset);
 			response.success(function (result, status, headers, config) {
 				loading = false;
 
-				if (result.status == 1) {
+				if (result.status === 1) {
 					//push the articles in articles array
 					for (var i = 0; i < result.data.length; i++) {
 						$rootScope.articles_data.push(result.data[i]);
 					}
+				}else{
+					console.log(result.error);
 				}
 
-			});
-
-			response.error(function (result, status, headers, config) {
-				alert("AJAX failed!");
-				loading = false;
 			});
 
 		}

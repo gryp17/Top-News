@@ -8,14 +8,20 @@ class Articles_model {
 		$this->connection = DB::getInstance()->connection;
     }
 
-    public function getArticles($limit, $offset) {
+    public function getArticles($category, $limit, $offset) {
         $data = array();
-
+		
         $limit = (int) $limit;
         $offset = (int) $offset;
 
-        $query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID order by date desc limit $limit offset $offset");
-        $query->execute();
+		if($category != null){
+			$query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID and category.name = ? order by date desc limit $limit offset $offset");
+			$query->bindParam(1, $category);
+		}else{
+			$query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID order by date desc limit $limit offset $offset");
+		}
+		
+		$query->execute();
 
         while ($row = $query->fetch()) {
             $data[] = $row;
