@@ -1,5 +1,14 @@
 app.controller("searchController", function($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
 	
+	//get the section name every time the route changes
+	$rootScope.$on('$routeChangeSuccess', function (){
+		if(typeof($routeParams.section_name) !== 'undefined'){
+			$scope.section_name = $routeParams.section_name;
+		}else{
+			$scope.section_name = null;
+		}
+	});
+	
 	$scope.timer;
 	$scope.search = function() {
 
@@ -19,12 +28,11 @@ app.controller("searchController", function($rootScope, $scope, $routeParams, $h
 
 				//if nothing is written in the input get the latest articles
 				if (search_val.length === 0) {
-					response = APIservice.getArticles();
-					//response = $http.get("API/getArticles");
+					response = APIservice.getArticles(null, null, $scope.section_name);
 				}
 				//otherwise search
 				else {
-					response = APIservice.getArticlesBySearch(search_val);
+					response = APIservice.getArticlesBySearch(search_val, $scope.section_name);
 				}
 
 				response.success(function(result, status, headers, config) {
@@ -47,58 +55,6 @@ app.controller("searchController", function($rootScope, $scope, $routeParams, $h
 
 
 	};
-	
-
-
-/*
-	var timer;
-	$("#search_value").keyup(function() {
-		//clear timeout when typing
-		if (timer) {
-			window.clearTimeout(timer);
-		}
-		//start new timeout
-		timer = window.setTimeout(function() {
-			timer = null;
-
-			$rootScope.search_val = $("#search_value").val();
-			console.log($rootScope.search_val);
-
-			if ($rootScope.search_val.length === 0 || $rootScope.search_val.length >= 3) {
-				var response;
-
-				//if nothing is written in the input get the latest articles
-				if ($rootScope.search_val.length === 0) {
-					response = $http.get("API/getArticles");
-				}
-				//otherwise search
-				else {
-					var search_val = encodeURIComponent($rootScope.search_val);
-					response = $http.get("API/getArticlesBySearch/" + search_val);
-				}
-				
-				response.success(function(result, status, headers, config) {
-
-					//if the status is success and there are articles
-					if (result.status == 1 && result.data.length > 0) {
-						$("#archive-link, .article-box").fadeIn(1);
-						$("#not-found").fadeOut(1);
-					} else {
-						$("#not-found").fadeIn(500);
-						$(".article-box, #archive-link").fadeOut(1);
-					}
-
-					$rootScope.articles_data = result.data;
-				});
-
-				response.error(function(result, status, headers, config) {
-					alert("AJAX failed!");
-				});
-			}
-
-		}, 1000);
-	});
-*/
 
 
 });

@@ -23,13 +23,15 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 
 	//Lazy Loading Effect
 
-	var limit = 6;
-	var offset = 6;
+	$scope.limit = 6;
+	$scope.offset = 6;
 	//prevent infinite loading
-	var loading = false;
+	$scope.loading = false;
 
 
 	//on window scroll get more articles with lazy loading
+	//first unbind all scroll handlers in order to prevent conflict with the other sections
+	$(window).unbind('scroll');
 	$(window).scroll(function () {
 		
 		//don't load more articles if there is an active search
@@ -42,12 +44,12 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 		var footerPosition = $("footer").offset().top - 400;
 
 		if (scrollTop > footerPosition && loading == false) {
-			offset = offset + 6;
-			loading = true;
+			$scope.offset = $scope.offset + 6;
+			$scope.loading = true;
 
-			var response = APIservice.getArticles(limit, offset);
+			var response = APIservice.getArticles($scope.limit, $scope.offset);
 			response.success(function (result, status, headers, config) {
-				loading = false;
+				$scope.loading = false;
 
 				if (result.status === 1) {
 					//push the articles in articles array

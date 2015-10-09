@@ -3,6 +3,7 @@ app.controller("homeController", function($rootScope ,$scope, $routeParams, $htt
 	//remove the text from the search input
 	searchService.setSearchVal('');
 
+	//get the latest 6 articles
 	var response = APIservice.getArticles();
 	response.success(function(result, status, headers, config) {
 		if (result.status === 1) {

@@ -30,12 +30,23 @@ class Articles_model {
         return $data;
     }
 
-    public function getArticlesBySearch($search_value) {
+    public function getArticlesBySearch($category, $search_value) {
         $data = array();
-        $query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID and title like ? order by date desc");
-        $like_value = '%' . $search_value . '%';
-        $query->bindParam(1, $like_value);
-        $query->execute();
+		
+		$like_value = '%' . $search_value . '%';
+		
+		if($category != null){
+			$query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID and category.name = ? and title like ? order by date desc");
+			$query->bindParam(1, $category);
+			$query->bindParam(2, $like_value);
+		}else{
+			$query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID and title like ? order by date desc");
+			$query->bindParam(1, $like_value);
+		}
+		
+		$query->execute();
+		
+       
 
         while ($row = $query->fetch()) {
             $data[] = $row;

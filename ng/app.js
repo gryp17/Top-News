@@ -9,7 +9,7 @@ app.config(['$routeProvider',
                 }).when('/archive', {
                     templateUrl: 'app/views/partials/archive.php',
                 }).otherwise({
-            templateUrl: 'app/views/partials/home.php',
+					templateUrl: 'app/views/partials/home.php',
         });
 }]);
 

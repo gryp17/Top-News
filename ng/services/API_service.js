@@ -1,10 +1,17 @@
 app.service('APIservice', function ($http){
 	
+	/**
+	 * Used to fetch articles
+	 * @param {int} limit
+	 * @param {int} offset
+	 * @param {String} category
+	 * @returns {object}
+	 */
 	this.getArticles = function (limit, offset, category){
 		var url = 'API/getArticles/';
 		
 		//check if there is a category param
-		if(typeof(category) !== 'undefined'){
+		if(typeof(category) !== 'undefined' && category !== null){
 			url = url + category + '/';
 		}
 		
@@ -19,9 +26,23 @@ app.service('APIservice', function ($http){
 		});
 	};
 	
+	/**
+	 * Used to fetch articles via keyword filter
+	 * @param {String} search_val
+	 * @param {String} category
+	 * @returns {object}
+	 */
 	this.getArticlesBySearch = function (search_val, category){
+		var url = 'API/getArticlesBySearch/';
+		
+		//check if there is a category param
+		if(typeof(category) !== 'undefined' && category !== null){
+			url = url + category + '/';
+		}
 		search_val = encodeURIComponent(search_val);
-		return $http.get("API/getArticlesBySearch/" + search_val);
+		url = url + search_val;
+		
+		return $http.get(url);
 	};
 	
 	

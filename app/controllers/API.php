@@ -20,13 +20,13 @@ class API extends Controller {
 		die(json_encode($result));
 	}
 
-	public function getArticlesBySearch($search_value) {
+	public function getArticlesBySearch($category = null, $search_value) {
 		$required_role = Controller::PUBLIC_ACCESS;
 
 		if ($this->checkPermission($required_role) == true) {
 			$search_value = urldecode($search_value);
 			$articles_model = $this->load_model('Articles_model');
-			$data = $articles_model->getArticlesBySearch($search_value);
+			$data = $articles_model->getArticlesBySearch($category, $search_value);
 			
 			$result = array('status' => 1, 'data' => $data);
 		} else {
