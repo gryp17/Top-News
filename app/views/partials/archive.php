@@ -15,13 +15,13 @@
             </a>
         </div>
         <div class="article-title">
-            <a href="#/article/{{article.ID}}">{{article.title}}</a>
+            <a href="#/article/{{article.ID}}">{{article.title | limitText:70}}</a>
         </div>
         <div class="article-summary">
-            <a href="#/article/{{article.ID}}">{{article.summary| limitTo : 100}}...</a>
+            <a href="#/article/{{article.ID}}">{{article.summary | limitText}}</a>
         </div>
         <a href="#/article/{{article.ID}}" class="read-more-btn">
-            Read More...
+            Read More
         </a>
     </article>
 

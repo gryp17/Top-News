@@ -1,4 +1,4 @@
-app.controller("archiveController", function ($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
+app.controller("archiveController", function ($rootScope, $scope, $routeParams, searchService, APIservice) {
 	
 	//remove the text from the search input
 	searchService.setSearchVal('');
@@ -43,7 +43,7 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 		var scrollTop = $(window).scrollTop() + 500;
 		var footerPosition = $("footer").offset().top - 400;
 
-		if (scrollTop > footerPosition && loading == false) {
+		if (scrollTop > footerPosition && $scope.loading == false) {
 			$scope.offset = $scope.offset + 6;
 			$scope.loading = true;
 

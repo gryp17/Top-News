@@ -3,13 +3,6 @@
     margin: 0px;
 }
 
-@font-face {
-    font-family: 'MoolBoran';
-    src: url('<?php echo base_url(); ?>include/fonts/MoolBoran.ttf'), format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .row{
     margin: 0px;
 }

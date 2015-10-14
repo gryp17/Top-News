@@ -1,4 +1,4 @@
-app.controller("homeController", function($rootScope ,$scope, $routeParams, $http, searchService, APIservice) {
+app.controller("homeController", function($rootScope ,$scope, $routeParams, searchService, APIservice) {
 
 	//remove the text from the search input
 	searchService.setSearchVal('');
