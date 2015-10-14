@@ -13,7 +13,7 @@ class Articles_model {
 		
         $limit = (int) $limit;
         $offset = (int) $offset;
-
+		
 		if($category != null){
 			$query = $this->connection->prepare("select article.ID, title, summary, content, image_path, date, category.name as category_name from article, category where article.categoryID = category.ID and category.name = ? order by date desc limit $limit offset $offset");
 			$query->bindParam(1, $category);

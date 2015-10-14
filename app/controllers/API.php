@@ -6,7 +6,7 @@ class API extends Controller {
 		
 	}
 
-	public function getArticles($category = null, $limit = 6, $offset = 0) {
+	public function getArticles($limit = 6, $offset = 0, $category = null) {
 		$required_role = Controller::PUBLIC_ACCESS;
 		
 		if ($this->checkPermission($required_role) == true) {
