@@ -20,7 +20,7 @@ class API extends Controller {
 		die(json_encode($result));
 	}
 
-	public function getArticlesBySearch($category = null, $search_value) {
+	public function getArticlesBySearch($search_value, $category = null) {
 		$required_role = Controller::PUBLIC_ACCESS;
 
 		if ($this->checkPermission($required_role) == true) {

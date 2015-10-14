@@ -1,5 +1,7 @@
 app.controller("searchController", function($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
 	
+	$scope.section_name = null;
+	
 	//get the section name every time the route changes
 	$rootScope.$on('$routeChangeSuccess', function (){
 		if(typeof($routeParams.section_name) !== 'undefined'){

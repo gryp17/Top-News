@@ -36,12 +36,13 @@ app.service('APIservice', function ($http){
 	this.getArticlesBySearch = function (search_val, category){
 		var url = 'API/getArticlesBySearch/';
 		
+		search_val = encodeURIComponent(search_val);
+		url = url + search_val + '/';
+		
 		//check if there is a category param
 		if(typeof(category) !== 'undefined' && category !== null){
-			url = url + category + '/';
+			url = url + category;
 		}
-		search_val = encodeURIComponent(search_val);
-		url = url + search_val;
 		
 		return $http.get(url);
 	};
