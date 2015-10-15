@@ -1,5 +1,9 @@
 app.controller("archiveController", function ($rootScope, $scope, $routeParams, searchService, APIservice) {
 	
+	//initialize the date picker
+	$("#archive_date_picker").datepicker();
+	$scope.selected_date;
+	
 	//remove the text from the search input
 	searchService.setSearchVal('');
 	

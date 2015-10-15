@@ -4,6 +4,10 @@
 
 <div id="articles-wrapper" class="row" ng-controller="archiveController as archive">
 	<br>
+	<input type="text" id="archive_date_picker" ng-model="selected_date" placeholder="Published on..."/>
+	{{selected_date}}
+	<br>
+	
 	<div id="not-found" class="center-text">
         No articles found.
     </div>
