@@ -3,6 +3,9 @@ app.controller("homeController", function($rootScope ,$scope, $routeParams, sear
 	//remove the text from the search input
 	searchService.setSearchVal('');
 
+	//remove the scroll event
+	$(window).unbind('scroll');
+	
 	//get the latest 6 articles
 	var response = APIservice.getArticles();
 	response.success(function(result, status, headers, config) {

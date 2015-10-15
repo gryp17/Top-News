@@ -12,14 +12,14 @@ class App{
         $url = $this->parseUrl();
         
         #check if the controller exists
-        if(file_exists("app/controllers/$url[0].php")){
+        if(file_exists("backend/controllers/$url[0].php")){
             $this->controller = $url[0];
             #remove the controller from the array
             unset($url[0]);
         }
         
         #include the controller file and create new object from that type
-        require_once "app/controllers/$this->controller.php";
+        require_once "backend/controllers/$this->controller.php";
         $this->controller = new $this->controller;
         
         #check if the function exists

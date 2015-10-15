@@ -9,13 +9,13 @@
         <script type="text/javascript" src="include/bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="include/angular.min.js"></script>
         <script type="text/javascript" src="include/angular-route.min.js"></script>
-        <script type="text/javascript" src="ng/app.js"></script>
-		<script type="text/javascript" src="ng/filters/custom_filters.js"></script>
-		<script type="text/javascript" src="ng/services/search_service.js"></script>
-		<script type="text/javascript" src="ng/services/API_service.js"></script>
-        <script type="text/javascript" src="ng/controllers/home.js"></script>
-        <script type="text/javascript" src="ng/controllers/articles.js"></script>
-        <script type="text/javascript" src="ng/controllers/archive.js"></script>
-        <script type="text/javascript" src="ng/controllers/search.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/filters/custom_filters.js"></script>
+		<script type="text/javascript" src="app/services/search_service.js"></script>
+		<script type="text/javascript" src="app/services/API_service.js"></script>
+        <script type="text/javascript" src="app/controllers/home.js"></script>
+        <script type="text/javascript" src="app/controllers/articles.js"></script>
+        <script type="text/javascript" src="app/controllers/archive.js"></script>
+        <script type="text/javascript" src="app/controllers/search.js"></script>
         <script type="text/javascript" src="include/scripts.js"></script>
 

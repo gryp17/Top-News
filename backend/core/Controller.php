@@ -46,7 +46,7 @@ class Controller{
 	
     public function load_model($model){
         #echo $model;
-        require_once "app/models/$model.php";
+        require_once "backend/models/$model.php";
         
 		return new $model();
     }

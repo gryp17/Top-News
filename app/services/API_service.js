@@ -27,6 +27,8 @@ app.service('APIservice', function ($http){
 		
 		url = url + category + '/' + limit + '/' + offset;
 		
+		console.log(url);
+		
 		return $http({
 			method: 'GET',
 			url: url
@@ -49,6 +51,8 @@ app.service('APIservice', function ($http){
 		
 		search_val = encodeURIComponent(search_val);
 		url = url + category + '/' + search_val + '/';
+		
+		console.log(url);
 		
 		return $http.get(url);
 	};
