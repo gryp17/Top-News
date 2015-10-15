@@ -46,14 +46,37 @@ class Articles_model {
 		
 		$query->execute();
 		
-       
-
         while ($row = $query->fetch()) {
             $data[] = $row;
         }
 
 		return $data;
     }
+	
+	
+	/**
+	 * Returns the latest article date in format YYY-mm-dd
+	 * @return string
+	 */
+	public function getLatestArticleDate($category){
+		$data = null;
+		
+		if($category != null){
+			$query = $this->connection->prepare("select DATE_FORMAT(max(date), '%Y-%m-%d') from article, category where article.categoryID = category.ID and category.name = ?");
+			$query->bindParam(1, $category);
+		}else{
+			$query = $this->connection->prepare("select DATE_FORMAT(max(date), '%Y-%m-%d') from article");
+		}
+		
+		$query->execute();
+		$row = $query->fetch();
+		
+		if(isset($row[0])){
+			$data = $row[0];
+		}
+		
+		return $data;
+	}
 
 }
 

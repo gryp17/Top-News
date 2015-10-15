@@ -58,5 +58,22 @@ app.service('APIservice', function ($http){
 	};
 	
 	
+	/**
+	 * Returns the latest article date in format YYYY-mm-dd
+	 * @returns {object}
+	 */
+	this.getLatestArticleDate = function (category){
+		var url = 'API/getLatestArticleDate';
+		
+		//check if there is a category param
+		if(typeof(category) !== 'undefined' && category !== null){
+			url = url + category;
+		}
+		
+		return $http.get(url);
+	};
+	
+	
+	
 });
 

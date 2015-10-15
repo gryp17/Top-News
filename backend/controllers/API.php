@@ -45,5 +45,25 @@ class API extends Controller {
 		
 		die(json_encode($result));
 	}
+	
+	public function getLatestArticleDate($category = null){
+		$required_role = Controller::PUBLIC_ACCESS;
+		
+		if ($this->checkPermission($required_role) == true) {
+			
+			if(!in_array($category, $this->valid_categories)){
+				$category = null;
+			}
+			
+			$articles_model = $this->load_model('Articles_model');
+			$data = $articles_model->getLatestArticleDate($category);
+			
+			$result = array('status' => 1, 'data' => $data);
+		} else {
+			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+		}
+		
+		die(json_encode($result));
+	}
 
 }

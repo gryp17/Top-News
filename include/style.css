@@ -236,3 +236,8 @@ footer.row{
     min-height: 50px;
     line-height: 50px;
 }
+
+#archive-date-picker{
+	width: 120px;
+	float: right;
+}

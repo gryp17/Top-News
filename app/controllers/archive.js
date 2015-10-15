@@ -1,13 +1,30 @@
 app.controller("archiveController", function ($rootScope, $scope, $routeParams, searchService, APIservice) {
 	
-	//initialize the date picker
-	$("#archive_date_picker").datepicker();
-	$scope.selected_date;
-	
 	//remove the text from the search input
 	searchService.setSearchVal('');
 	
-	$("body").scrollTop(0);
+	//initialize the date picker
+	$scope.selected_date;
+	$("#archive-date-picker").datepicker({
+		constrainInput: true,
+		dateFormat: "yy-mm-dd"
+	});
+	
+	//enable the calendar icon click
+	$("#archive-date-picker").siblings(".input-group-btn").click(function (){
+		$("#archive-date-picker").focus();
+	});
+	
+	//set the max date after the datepicker has been initialized
+	var response = APIservice.getLatestArticleDate();
+	response.success(function(result, status, headers, config) {
+		if (result.status === 1) {
+			$("#archive-date-picker").datepicker("option", "maxDate", new Date(result.data));
+		} else {
+			console.log(result.error);
+		}
+	});
+	
 	
 	
 	//get the first batch of articles
