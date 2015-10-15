@@ -6,10 +6,15 @@ class API extends Controller {
 		
 	}
 
-	public function getArticles($limit = 6, $offset = 0, $category = null) {
+	public function getArticles($category, $limit = 6, $offset = 0) {
 		$required_role = Controller::PUBLIC_ACCESS;
 		
 		if ($this->checkPermission($required_role) == true) {
+			
+			if(!in_array($category, $this->valid_categories)){
+				$category = null;
+			}
+			
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getArticles($category, $limit, $offset);
 			$result = array('status' => 1, 'data' => $data);
@@ -20,10 +25,15 @@ class API extends Controller {
 		die(json_encode($result));
 	}
 
-	public function getArticlesBySearch($search_value, $category = null) {
+	public function getArticlesBySearch($category, $search_value) {
 		$required_role = Controller::PUBLIC_ACCESS;
 
 		if ($this->checkPermission($required_role) == true) {
+			
+			if(!in_array($category, $this->valid_categories)){
+				$category = null;
+			}
+			
 			$search_value = urldecode($search_value);
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getArticlesBySearch($category, $search_value);

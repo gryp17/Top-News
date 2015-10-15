@@ -30,11 +30,11 @@ app.controller("searchController", function($rootScope, $scope, $routeParams, $h
 
 				//if nothing is written in the input get the latest articles
 				if (search_val.length === 0) {
-					response = APIservice.getArticles(null, null, $scope.section_name);
+					response = APIservice.getArticles($scope.section_name, null, null);
 				}
 				//otherwise search
 				else {
-					response = APIservice.getArticlesBySearch(search_val, $scope.section_name);
+					response = APIservice.getArticlesBySearch($scope.section_name, search_val);
 				}
 
 				response.success(function(result, status, headers, config) {

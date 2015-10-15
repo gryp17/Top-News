@@ -7,7 +7,7 @@ app.controller("articlesController", function ($rootScope, $scope, $routeParams,
 	searchService.setSearchVal('');
 	
 	//get the first batch of articles
-	var response = APIservice.getArticles(null, null, $scope.section_name);
+	var response = APIservice.getArticles($scope.section_name);
 	response.success(function(result, status, headers, config) {
 		if (result.status === 1) {
 			$rootScope.articles_data = result.data;
@@ -24,7 +24,7 @@ app.controller("articlesController", function ($rootScope, $scope, $routeParams,
 	//Lazy Loading Effect
 
 	$scope.limit = 6;
-	$scope.offset = 6;
+	$scope.offset = 0;
 	//prevent infinite loading
 	$scope.loading = false;
 			
@@ -46,7 +46,7 @@ app.controller("articlesController", function ($rootScope, $scope, $routeParams,
 			$scope.offset = $scope.offset + 6;
 			$scope.loading = true;
 
-			var response = APIservice.getArticles($scope.limit, $scope.offset, $scope.section_name);
+			var response = APIservice.getArticles($scope.section_name, $scope.limit, $scope.offset);
 			response.success(function (result, status, headers, config) {
 				$scope.loading = false;
 

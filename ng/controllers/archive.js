@@ -24,7 +24,7 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 	//Lazy Loading Effect
 
 	$scope.limit = 6;
-	$scope.offset = 6;
+	$scope.offset = 0;
 	//prevent infinite loading
 	$scope.loading = false;
 
@@ -47,7 +47,7 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 			$scope.offset = $scope.offset + 6;
 			$scope.loading = true;
 
-			var response = APIservice.getArticles($scope.limit, $scope.offset);
+			var response = APIservice.getArticles(null, $scope.limit, $scope.offset);
 			response.success(function (result, status, headers, config) {
 				$scope.loading = false;
 

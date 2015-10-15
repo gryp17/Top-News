@@ -10,6 +10,15 @@ class Controller{
 	const ACCESS_DENIED = 'Access denied!';
 	
 	
+	public $valid_categories = array(
+		'politics',
+		'economy',
+		'world',
+		'technology',
+		'sport'
+	);
+	
+	
 	/**
 	 * Checks if the user has the required permissions
 	 * @param int $required_role
