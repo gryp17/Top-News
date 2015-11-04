@@ -6,9 +6,21 @@ class API extends Controller {
 		
 	}
 	
-	#list of required parameters for each API function
+
+	/**
+	 * List of required parameters for each API function
+	 * also indicates the parameter type
+	 */
 	private $required_params = array(
-		'getArticles' => array('limit', 'offset'),
+		'getArticles' => array(
+			'limit' => 'int',
+			'offset' => 'int'
+		),
+		'getArticlesBySearch' => array(
+			'search_val' => '+'
+		),
+		'getLatestArticleDate' => array(),
+		
 	);
 	
 	
@@ -34,9 +46,15 @@ class API extends Controller {
 		if(isset($params['url'])){
 			$function = array_pop(explode('/', $params['url']));
 			
-			foreach($this->required_params[$function] as $param){
+			foreach($this->required_params[$function] as $param => $type){
+				#check if the param exists
 				if(!isset($params[$param])){
 					die(json_encode(array('status' => 0, 'error' => "Missing $param parameter.")));
+				}
+				
+				#check if the param meets the requirements
+				if($this->checkParam($params[$param], $type) == false){
+					die(json_encode(array('status' => 0, 'error' => "Invalid $param parameter.")));
 				}
 			}
 			
@@ -45,6 +63,34 @@ class API extends Controller {
 		}
 		
 		return $params;
+	}
+	
+	
+	/**
+	 * Checks if the passed parameter value meets the type requirements
+	 * @param string $value
+	 * @param string $type
+	 * @return boolean
+	 */
+	private function checkParam($value, $type){
+		$result = true;
+		
+		switch ($type) {
+			#valid integer
+			case 'int':
+				if(!ctype_digit($value)){
+					$result = false;
+				}
+				break;
+			#not an empty string
+			case '+':
+				if(strlen($value) == 0){
+					$result = false;
+				}
+				break;
+		}
+		
+		return $result;
 	}
 	
 
@@ -81,18 +127,28 @@ class API extends Controller {
 	}
 	
 
-	public function getArticlesBySearch($category, $search_value) {
+	/**
+	 * Returns all articles from the specified category that contain the search value
+	 * 
+	 * Required params:
+	 * @param string search_val
+	 * 
+	 * Optional params:
+	 * @param string category
+	 */
+	public function getArticlesBySearch() {
 		$required_role = Controller::PUBLIC_ACCESS;
 
 		if ($this->checkPermission($required_role) == true) {
 			
-			if(!in_array($category, $this->valid_categories)){
-				$category = null;
+			$params = $this->getRequestParams();
+			
+			if(!in_array($params['category'], $this->valid_categories)){
+				$params['category'] = null;
 			}
 			
-			$search_value = urldecode($search_value);
 			$articles_model = $this->load_model('Articles_model');
-			$data = $articles_model->getArticlesBySearch($category, $search_value);
+			$data = $articles_model->getArticlesBySearch($params['category'], $params['search_val']);
 			
 			$result = array('status' => 1, 'data' => $data);
 		} else {
@@ -102,17 +158,26 @@ class API extends Controller {
 		die(json_encode($result));
 	}
 	
-	public function getLatestArticleDate($category = null){
+	
+	/**
+	 * Returns the date of the latest article from the specified category
+	 * 
+	 * Optional params:
+	 * @param string category
+	 */
+	public function getLatestArticleDate(){
 		$required_role = Controller::PUBLIC_ACCESS;
 		
 		if ($this->checkPermission($required_role) == true) {
 			
-			if(!in_array($category, $this->valid_categories)){
-				$category = null;
+			$params = $this->getRequestParams();
+			
+			if(!in_array($params['category'], $this->valid_categories)){
+				$params['category'] = null;
 			}
 			
 			$articles_model = $this->load_model('Articles_model');
-			$data = $articles_model->getLatestArticleDate($category);
+			$data = $articles_model->getLatestArticleDate($params['category']);
 			
 			$result = array('status' => 1, 'data' => $data);
 		} else {

@@ -38,19 +38,14 @@ app.service('APIservice', function ($http){
 	 * @returns {object}
 	 */
 	this.getArticlesBySearch = function (category, search_val){
-		var url = 'API/getArticlesBySearch/';
-		
-		//check if there is a category param
-		if(typeof(category) === 'undefined' || category === null){
-			category = null;
-		}
-		
-		search_val = encodeURIComponent(search_val);
-		url = url + category + '/' + search_val + '/';
-		
-		console.log(url);
-		
-		return $http.get(url);
+		return $http({
+			method: 'POST',
+			url: 'API/getArticlesBySearch',
+			data: {
+				category: category,
+				search_val: search_val
+			}
+		});
 	};
 	
 	
@@ -58,15 +53,14 @@ app.service('APIservice', function ($http){
 	 * Returns the latest article date in format YYYY-mm-dd
 	 * @returns {object}
 	 */
-	this.getLatestArticleDate = function (category){
-		var url = 'API/getLatestArticleDate';
-		
-		//check if there is a category param
-		if(typeof(category) !== 'undefined' && category !== null){
-			url = url + category;
-		}
-		
-		return $http.get(url);
+	this.getLatestArticleDate = function (category){		
+		return $http({
+			method: 'POST',
+			url: 'API/getLatestArticleDate',
+			data: {
+				category: category,
+			}
+		});
 	};
 	
 	
