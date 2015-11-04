@@ -8,6 +8,13 @@ class Articles_model {
 		$this->connection = DB::getInstance()->connection;
     }
 
+	/**
+	 * Returns all articles from the specified category
+	 * @param string $category
+	 * @param int $limit
+	 * @param int $offset
+	 * @return array
+	 */
     public function getArticles($category, $limit, $offset) {
         $data = array();
 		
@@ -30,6 +37,12 @@ class Articles_model {
         return $data;
     }
 
+	/**
+	 * Returns all articles from the specified category that contain the search_value
+	 * @param string $category
+	 * @param string $search_value
+	 * @return array
+	 */
     public function getArticlesBySearch($category, $search_value) {
         $data = array();
 		
@@ -53,9 +66,10 @@ class Articles_model {
 		return $data;
     }
 	
-	
+		
 	/**
 	 * Returns the latest article date in format YYY-mm-dd
+	 * @param string $category
 	 * @return string
 	 */
 	public function getLatestArticleDate($category){
