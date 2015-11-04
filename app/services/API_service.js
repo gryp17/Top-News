@@ -8,13 +8,7 @@ app.service('APIservice', function ($http){
 	 * @returns {object}
 	 */
 	this.getArticles = function (category, limit, offset){
-		var url = 'API/getArticles/';
-		
-		//check if there is a category param
-		if(typeof(category) === 'undefined' || category === null){
-			category = null;
-		}
-		
+				
 		//set default values if the param is not present
 		if(typeof(limit) !== 'number'){
 			limit = 6;
@@ -25,14 +19,16 @@ app.service('APIservice', function ($http){
 			offset = 0;
 		}
 		
-		url = url + category + '/' + limit + '/' + offset;
-		
-		console.log(url);
-		
 		return $http({
-			method: 'GET',
-			url: url
+			method: 'POST',
+			url: 'API/getArticles',
+			data: {
+				category: category,
+				limit: limit,
+				offset: offset
+			}
 		});
+		
 	};
 	
 	/**
