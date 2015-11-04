@@ -33,10 +33,10 @@ class API extends Controller {
 		$params = array();
 		
 		#merge the request and post params
-		$_REQUEST = array_merge($_REQUEST, $_POST);
+		$request_data = array_merge($_REQUEST, $_POST);
 		
 		#extract all request params
-		foreach($_REQUEST as $key => $value){
+		foreach($request_data as $key => $value){
 			$key = trim($key);
 			$value = trim($value);
 			$params[$key] = $value;
