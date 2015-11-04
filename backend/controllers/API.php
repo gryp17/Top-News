@@ -112,7 +112,7 @@ class API extends Controller {
 			$params = $this->getRequestParams();
 			
 			#set default category
-			if(!in_array($params['category'], $this->valid_categories)){
+			if(!isset($params['category']) || !in_array($params['category'], $this->valid_categories)){
 				$params['category'] = null;
 			}
 						
@@ -143,7 +143,7 @@ class API extends Controller {
 			
 			$params = $this->getRequestParams();
 			
-			if(!in_array($params['category'], $this->valid_categories)){
+			if(!isset($params['category']) || !in_array($params['category'], $this->valid_categories)){
 				$params['category'] = null;
 			}
 			
@@ -172,7 +172,7 @@ class API extends Controller {
 			
 			$params = $this->getRequestParams();
 			
-			if(!in_array($params['category'], $this->valid_categories)){
+			if(!isset($params['category']) || !in_array($params['category'], $this->valid_categories)){
 				$params['category'] = null;
 			}
 			
