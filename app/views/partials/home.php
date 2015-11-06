@@ -4,13 +4,13 @@
 
 <div id="articles-wrapper" class="row" ng-controller="homeController as home">
     <br>
-    <div id="not-found" class="center-text">
+	<div ng-show="articles_data.length == 0" class="center-text">
         No articles found.
     </div>
     <article class="article-box" ng-repeat="article in articles_data">
         <div class="article-img">
             <a href="#/article/{{article.ID}}">
-                <div class="section-box">{{article.category_name| uppercase}}</div>
+                <div class="section-box">{{article.category_name | uppercase}}</div>
                 <img class="img-responsive center" ng-src="res/articles/img/{{article.image_path}}"/>
             </a>
         </div>

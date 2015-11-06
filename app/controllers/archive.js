@@ -30,6 +30,7 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 	$scope.$watch('selected_date', function () {
 		if (typeof ($scope.selected_date) != 'undefined') {
 			
+			//fetch the articles from the selected date
 			var response = APIservice.getArticlesByDate($scope.selected_date);
 			response.success(function (result, status, headers, config) {
 				if (result.status === 1) {

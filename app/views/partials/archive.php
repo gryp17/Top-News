@@ -12,8 +12,6 @@
 		</span>
 	</div>
 
-
-
 	<br>
 
 	<div ng-show="articles_data.length == 0" class="center-text">

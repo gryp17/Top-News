@@ -9,7 +9,7 @@
 		Section is {{section_name}}
 	</div>
 	
-	<div id="not-found" class="center-text">
+	<div ng-show="articles_data.length == 0" class="center-text">
         No articles found.
     </div>
     <article class="article-box" ng-repeat="article in articles_data">
