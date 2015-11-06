@@ -26,3 +26,15 @@ app.filter('limitText', function() {
 		return text;
 	};
 });
+
+
+/**
+ * Custom formatDate filter that wraps around the default 'date' filter
+ */
+app.filter('formatDate', function ($filter){
+	return function(text, format) {
+		text = text.split("-").join("/");
+		text = $filter('date')(new Date(text), format);
+		return text;
+	};
+});

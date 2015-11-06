@@ -170,6 +170,10 @@ body{
     font-weight: bold;
 }
 
+.section-box span{
+	float: right;
+}
+
 .article-title{
     text-align: justify;
     font-size: 17px;

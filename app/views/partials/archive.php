@@ -20,7 +20,10 @@
     <article class="article-box" ng-repeat="article in articles_data">
         <div class="article-img">
             <a href="#/article/{{article.ID}}">
-                <div class="section-box">{{article.category_name| uppercase}}</div>
+                <div class="section-box">
+					{{article.category_name| uppercase}} 
+					<span>{{article.date| formatDate:'yyyy-MM-dd'}}</span>
+				</div>
                 <img class="img-responsive center" ng-src="res/articles/img/{{article.image_path}}"/>
             </a>
         </div>
