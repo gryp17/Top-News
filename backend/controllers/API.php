@@ -19,7 +19,10 @@ class API extends Controller {
 		'getArticlesBySearch' => array(
 			'search_val' => '+'
 		),
-		'getLatestArticleDate' => array(),
+		'getArticlesByDate' => array(
+			'date' => 'date'
+		),
+		'getLatestArticleDate' => array()
 		
 	);
 	
@@ -79,6 +82,12 @@ class API extends Controller {
 			#valid integer
 			case 'int':
 				if(!ctype_digit($value)){
+					$result = false;
+				}
+				break;
+			#valid date
+			case 'date':
+				if(!preg_match('/^\d{4}-\d{2}-\d{2}$/', $value)){
 					$result = false;
 				}
 				break;
@@ -149,6 +158,32 @@ class API extends Controller {
 			
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getArticlesBySearch($params['category'], $params['search_val']);
+			
+			$result = array('status' => 1, 'data' => $data);
+		} else {
+			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+		}
+		
+		die(json_encode($result));
+	}
+	
+	
+	
+	/**
+	 * Returns all articles published on the provided date
+	 * 
+	 * Required params:
+	 * @param string date
+	 */
+	public function getArticlesByDate(){
+		$required_role = Controller::PUBLIC_ACCESS;
+		
+		if ($this->checkPermission($required_role) == true) {
+			
+			$params = $this->getRequestParams();
+						
+			$articles_model = $this->load_model('Articles_model');
+			$data = $articles_model->getArticlesByDate($params['date']);
 			
 			$result = array('status' => 1, 'data' => $data);
 		} else {

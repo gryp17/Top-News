@@ -50,6 +50,22 @@ app.service('APIservice', function ($http){
 	
 	
 	/**
+	 * Used to fetch all articles from the specified date
+	 * @param {string} date
+	 * @returns {object}
+	 */
+	this.getArticlesByDate = function (date){
+		return $http({
+			method: 'POST',
+			url: 'API/getArticlesByDate',
+			data: {
+				date: date,
+			}
+		});
+	};
+	
+	
+	/**
 	 * Returns the latest article date in format YYYY-mm-dd
 	 * @returns {object}
 	 */

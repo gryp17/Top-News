@@ -6,7 +6,7 @@
 	<br>
 
 	<div class="input-group">
-		<input type="text" class="form-control" id="archive-date-picker" ng-model="selected_date" placeholder="Published on..."/>
+		<input type="text" class="form-control" id="archive-date-picker" ng-model="selected_date" ng-blur="test()" placeholder="Published on..."/>
 		<span class="input-group-btn">
 			<button class="btn btn-default"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
 		</span>
@@ -16,7 +16,7 @@
 
 	<br>
 
-	<div id="not-found" class="center-text">
+	<div ng-show="articles_data.length == 0" class="center-text">
         No articles found.
     </div>
     <article class="article-box" ng-repeat="article in articles_data">
