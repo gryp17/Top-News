@@ -19,7 +19,7 @@
 }
 
 body{
-    background: url(../img/bg.jpg) no-repeat fixed;
+    background: url(../../img/bg.jpg) no-repeat fixed;
     background-size: cover;
     font-family: 'Open Sans', sans-serif;
 }

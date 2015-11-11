@@ -1,0 +1,16 @@
+// variables
+$background: url(../../img/bg.jpg) no-repeat fixed;
+$background-size: cover;
+$main-wrapper-background: rgba(255, 255, 255, 0.9);
+
+$font-family: 'Open Sans', sans-serif;
+
+
+// mixins
+@mixin center {
+	margin: auto;
+}
+
+@mixin center-text {
+	text-align: center;
+}

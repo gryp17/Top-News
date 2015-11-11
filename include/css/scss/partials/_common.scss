@@ -1,0 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background: $background;
+    background-size: $background-size;
+    font-family: $font-family;
+}
+
+.center{
+    margin: auto;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.row{
+    margin: 0px;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
+#main-wrapper{
+    width: 1000px;
+    min-height: 500px;
+    background: rgba(255, 255, 255, 0.9);
+}
