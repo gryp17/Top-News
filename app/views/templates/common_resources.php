@@ -3,8 +3,8 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
         <link href="include/css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/>
 		<link href="include/css/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <link href="include/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="include/css/queries.css" rel="stylesheet" type="text/css"/>
+        <link href="include/css/main.css" rel="stylesheet" type="text/css"/>
+       <!-- <link href="include/css/queries.css" rel="stylesheet" type="text/css"/> -->
         <!-- JS -->
         <script type="text/javascript" src="include/js/jquery/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="include/js/jqueryui/jquery-ui.min.js"></script>

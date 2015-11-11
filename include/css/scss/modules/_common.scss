@@ -3,6 +3,8 @@ $background: url(../../img/bg.jpg) no-repeat fixed;
 $background-size: cover;
 $main-wrapper-background: rgba(255, 255, 255, 0.9);
 
+$menu-colors: #78909C #2586E5 #03937A #366778 #0097A5;
+
 $font-family: 'Open Sans', sans-serif;
 
 
@@ -13,4 +15,10 @@ $font-family: 'Open Sans', sans-serif;
 
 @mixin center-text {
 	text-align: center;
+}
+
+@mixin filter-saturate($percent) {
+	filter: saturate($percent);
+	-moz-filter: saturate($percent);
+	-webkit-filter: saturate($percent);
 }
