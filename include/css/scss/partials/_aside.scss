@@ -1,0 +1,19 @@
+#user-menu{
+    font-size: 19px;
+    color: #0B6490;
+	
+	#user-login, #user-signup{
+		padding: 0px;
+		text-align: center;
+	}
+}
+
+.aside-box{
+    margin-top: 12px;
+    min-height: 200px;
+    background: #366778;
+	
+	@media screen and (max-width: 768px){
+		display: none;
+	}
+}

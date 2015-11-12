@@ -1,4 +1,4 @@
-/*
+
 *{
     padding: 0px;
     margin: 0px;
@@ -134,9 +134,9 @@ body{
 #search-bar{
     margin-top: 10px;
 }
-*/
 
-/*
+
+
 #articles-wrapper{
     display: none;
     text-align: left;
@@ -221,7 +221,8 @@ body{
     display: block;
     text-align: center;
 }
-*/
+
+
 
 #user-menu{
     font-size: 19px;
@@ -238,6 +239,7 @@ body{
     min-height: 200px;
     background: #366778;
 }
+
 
 footer.row{
     background: rgba(0,0,0,0.1);
