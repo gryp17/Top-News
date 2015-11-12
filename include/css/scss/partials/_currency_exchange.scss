@@ -1,0 +1,13 @@
+#currency-exchange{
+    min-height: 40px;
+    padding: 0px;
+	
+	@media screen and (max-width: 768px){
+        margin-top: 15px;
+	}
+	
+	iframe{
+		display: none;
+	}
+}
+

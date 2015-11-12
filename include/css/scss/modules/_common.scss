@@ -22,3 +22,9 @@ $font-family: 'Open Sans', sans-serif;
 	-moz-filter: saturate($percent);
 	-webkit-filter: saturate($percent);
 }
+
+@mixin box-shadow($params){
+	-webkit-box-shadow: $params;
+	-moz-box-shadow: $params;
+	box-shadow: $params;
+}
