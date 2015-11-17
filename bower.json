@@ -1,0 +1,22 @@
+{
+  "name": "Top-News",
+  "description": "AngularJS news web app",
+  "authors": [
+    "Plamen"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+	"jquery-ui": "1.11.x",
+	"bootstrap": "3.x",
+	"angular": "1.4.x",
+	"angular-route": "1.4.x"
+  }
+}
