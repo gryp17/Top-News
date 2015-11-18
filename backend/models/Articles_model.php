@@ -30,7 +30,7 @@ class Articles_model {
 
 		$query->execute();
 
-		while ($row = $query->fetch()) {
+		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 			$data[] = $row;
 		}
 
@@ -59,7 +59,7 @@ class Articles_model {
 
 		$query->execute();
 
-		while ($row = $query->fetch()) {
+		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 			$data[] = $row;
 		}
 
@@ -78,7 +78,7 @@ class Articles_model {
 		$query->bindParam(1, $date);
 		$query->execute();
 
-		while ($row = $query->fetch()) {
+		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 			$data[] = $row;
 		}
 
@@ -109,5 +109,36 @@ class Articles_model {
 
 		return $data;
 	}
+
+	/**
+	 * Returns a single article data
+	 * @param int $id
+	 * @return array
+	 */
+	public function getArticle($id) {
+		$data = null;
+		
+		$id = (int) $id;
+
+		$query = $this->connection->prepare("select * from article where id = ?");
+		$query->bindParam(1, $id);
+
+		$query->execute();
+		$data = $query->fetch(PDO::FETCH_ASSOC);
+
+		return $data;
+	}
+	
+	/**
+	 * Increments the article views
+	 * @param int $id
+	 */
+	public function addArticleView($id){
+		$id = (int) $id;
+		$query = $this->connection->prepare("update article set views = views + 1 where id = ?");
+		$query->bindParam(1, $id);
+		$query->execute();
+	}
+	
 
 }

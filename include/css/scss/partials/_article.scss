@@ -1,0 +1,45 @@
+#article-wrapper{
+	display: none;
+
+	@media (min-width: 560px){
+		padding: 10px;
+	}
+
+	h4.title{
+		margin-top: 20px;
+		font-weight: bold;
+		color: $article-title-color;
+		text-align: center;
+	}
+
+	img.article-img{
+		width: 100%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.info-wrapper{
+		height: 25px;
+		
+		.date{
+			display: block;
+			float: left;
+			margin-top: 5px;
+			font-weight: bold;
+		}
+
+		.views{
+			display: block;
+			float: right;
+		}
+	}
+
+	hr{
+		border: solid 1px #ccccff;
+	}
+
+	article{
+		text-align: justify;
+	}
+
+}

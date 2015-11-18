@@ -190,6 +190,35 @@ body {
     font-size: 17px;
     text-align: center; }
 
+#article-wrapper {
+  display: none; }
+  @media (min-width: 560px) {
+    #article-wrapper {
+      padding: 10px; } }
+  #article-wrapper h4.title {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #00579A;
+    text-align: center; }
+  #article-wrapper img.article-img {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #article-wrapper .info-wrapper {
+    height: 25px; }
+    #article-wrapper .info-wrapper .date {
+      display: block;
+      float: left;
+      margin-top: 5px;
+      font-weight: bold; }
+    #article-wrapper .info-wrapper .views {
+      display: block;
+      float: right; }
+  #article-wrapper hr {
+    border: solid 1px #ccccff; }
+  #article-wrapper article {
+    text-align: justify; }
+
 #archive-date-picker {
   width: 120px;
   float: right; }

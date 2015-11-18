@@ -22,8 +22,13 @@ class API extends Controller {
 		'getArticlesByDate' => array(
 			'date' => 'date'
 		),
-		'getLatestArticleDate' => array()
-		
+		'getLatestArticleDate' => array(),
+		'getArticle' => array(
+			'id' => 'int'
+		),
+		'addArticleView' => array(
+			'id' => 'int'
+		)
 	);
 	
 	
@@ -221,5 +226,53 @@ class API extends Controller {
 		
 		die(json_encode($result));
 	}
+	
+	
+	/**
+	 * Returns a single article data
+	 * Required params:
+	 * @param int id
+	 */
+	public function getArticle() {
+		$required_role = Controller::PUBLIC_ACCESS;
+		
+		if ($this->checkPermission($required_role) == true) {
+			
+			$params = $this->getRequestParams();
+						
+			$articles_model = $this->load_model('Articles_model');
+			$data = $articles_model->getArticle($params['id']);
+			$result = array('status' => 1, 'data' => $data);
+		} else {
+			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+		}
+
+		die(json_encode($result));
+	}
+	
+	
+	/**
+	 * Increments the article views
+	 * 
+	 * Required params:
+	 * @param int id
+	 */
+	public function addArticleView() {
+		$required_role = Controller::PUBLIC_ACCESS;
+		
+		if ($this->checkPermission($required_role) == true) {
+			
+			$params = $this->getRequestParams();
+						
+			$articles_model = $this->load_model('Articles_model');
+			$articles_model->addArticleView($params['id']);
+			$result = array('status' => 1);
+		} else {
+			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+		}
+
+		die(json_encode($result));
+	}
+	
 
 }

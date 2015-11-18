@@ -80,6 +80,38 @@ app.service('APIservice', function ($http){
 	};
 	
 	
+	/**
+	 * Used to fetch single article data
+	 * @param {int} id
+	 * @returns {object}
+	 */
+	this.getArticle = function (id){
+		return $http({
+			method: 'POST',
+			url: 'API/getArticle',
+			data: {
+				id: id
+			}
+		});
+		
+	};
+	
+	/**
+	 * Used to increment the article views
+	 * @param {int} id
+	 * @returns {object}
+	 */
+	this.addArticleView = function (id){
+		return $http({
+			method: 'POST',
+			url: 'API/addArticleView',
+			data: {
+				id: id
+			}
+		});
+	}
+	
+	
 	
 });
 
