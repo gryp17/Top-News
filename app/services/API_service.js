@@ -1,5 +1,5 @@
-app.service('APIservice', function ($http){
-	
+app.service('APIservice', function ($http) {
+
 	/**
 	 * Used to fetch articles
 	 * @param {int} limit
@@ -7,18 +7,18 @@ app.service('APIservice', function ($http){
 	 * @param {String} category
 	 * @returns {object}
 	 */
-	this.getArticles = function (category, limit, offset){
-				
+	this.getArticles = function (category, limit, offset) {
+
 		//set default values if the param is not present
-		if(typeof(limit) !== 'number'){
+		if (typeof (limit) !== 'number') {
 			limit = 6;
 		}
-		
+
 		//set default values if the param is not present
-		if(typeof(offset) !== 'number'){
+		if (typeof (offset) !== 'number') {
 			offset = 0;
 		}
-		
+
 		return $http({
 			method: 'POST',
 			url: 'API/getArticles',
@@ -28,16 +28,16 @@ app.service('APIservice', function ($http){
 				offset: offset
 			}
 		});
-		
+
 	};
-	
+
 	/**
 	 * Used to fetch articles via keyword filter
 	 * @param {String} search_val
 	 * @param {String} category
 	 * @returns {object}
 	 */
-	this.getArticlesBySearch = function (category, search_val){
+	this.getArticlesBySearch = function (category, search_val) {
 		return $http({
 			method: 'POST',
 			url: 'API/getArticlesBySearch',
@@ -47,14 +47,14 @@ app.service('APIservice', function ($http){
 			}
 		});
 	};
-	
-	
+
+
 	/**
 	 * Used to fetch all articles from the specified date
 	 * @param {string} date
 	 * @returns {object}
 	 */
-	this.getArticlesByDate = function (date){
+	this.getArticlesByDate = function (date) {
 		return $http({
 			method: 'POST',
 			url: 'API/getArticlesByDate',
@@ -63,13 +63,13 @@ app.service('APIservice', function ($http){
 			}
 		});
 	};
-	
-	
+
+
 	/**
 	 * Returns the latest article date in format YYYY-mm-dd
 	 * @returns {object}
 	 */
-	this.getLatestArticleDate = function (category){		
+	this.getLatestArticleDate = function (category) {
 		return $http({
 			method: 'POST',
 			url: 'API/getLatestArticleDate',
@@ -78,14 +78,14 @@ app.service('APIservice', function ($http){
 			}
 		});
 	};
-	
-	
+
+
 	/**
 	 * Used to fetch single article data
 	 * @param {int} id
 	 * @returns {object}
 	 */
-	this.getArticle = function (id){
+	this.getArticle = function (id) {
 		return $http({
 			method: 'POST',
 			url: 'API/getArticle',
@@ -93,15 +93,15 @@ app.service('APIservice', function ($http){
 				id: id
 			}
 		});
-		
+
 	};
-	
+
 	/**
 	 * Used to increment the article views
 	 * @param {int} id
 	 * @returns {object}
 	 */
-	this.addArticleView = function (id){
+	this.addArticleView = function (id) {
 		return $http({
 			method: 'POST',
 			url: 'API/addArticleView',
@@ -110,8 +110,8 @@ app.service('APIservice', function ($http){
 			}
 		});
 	}
-	
-	
-	
+
+
+
 });
 

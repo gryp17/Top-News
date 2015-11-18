@@ -29,7 +29,7 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 	//watch for changes on the selected_date
 	$scope.$watch('selected_date', function () {
 		if (typeof ($scope.selected_date) != 'undefined') {
-			
+
 			//fetch the articles from the selected date
 			var response = APIservice.getArticlesByDate($scope.selected_date);
 			response.success(function (result, status, headers, config) {
@@ -43,7 +43,7 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 					console.log(result.error);
 				}
 			});
-			
+
 		}
 	});
 
@@ -79,7 +79,7 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 
 		//don't load more articles if there is an active search or date filter
 		var search_val = searchService.getSearchVal();
-		if (search_val.length >= 3 || typeof($scope.selected_date) != 'undefined') {
+		if (search_val.length >= 3 || typeof ($scope.selected_date) != 'undefined') {
 			return false;
 		}
 

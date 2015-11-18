@@ -117,7 +117,7 @@ class Articles_model {
 	 */
 	public function getArticle($id) {
 		$data = null;
-		
+
 		$id = (int) $id;
 
 		$query = $this->connection->prepare("select * from article where id = ?");
@@ -128,17 +128,16 @@ class Articles_model {
 
 		return $data;
 	}
-	
+
 	/**
 	 * Increments the article views
 	 * @param int $id
 	 */
-	public function addArticleView($id){
+	public function addArticleView($id) {
 		$id = (int) $id;
 		$query = $this->connection->prepare("update article set views = views + 1 where id = ?");
 		$query->bindParam(1, $id);
 		$query->execute();
 	}
-	
 
 }

@@ -1,26 +1,26 @@
-app.controller("searchController", function($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
-	
+app.controller("searchController", function ($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
+
 	//default section
 	$scope.section_name = 'all news';
-	
+
 	//get the section name every time the route changes
-	$rootScope.$on('$routeChangeSuccess', function (){
-		if(typeof($routeParams.section_name) !== 'undefined'){
+	$rootScope.$on('$routeChangeSuccess', function () {
+		if (typeof ($routeParams.section_name) !== 'undefined') {
 			$scope.section_name = $routeParams.section_name;
-		}else{
+		} else {
 			$scope.section_name = 'all news';
 		}
 	});
-	
+
 	$scope.timer;
-	$scope.search = function() {
+	$scope.search = function () {
 
 		//clear timeout when typing
 		if ($scope.timer) {
 			window.clearTimeout($scope.timer);
 		}
 		//start new timeout
-		$scope.timer = window.setTimeout(function() {
+		$scope.timer = window.setTimeout(function () {
 			$scope.timer = null;
 
 			//get the search value
@@ -38,7 +38,7 @@ app.controller("searchController", function($rootScope, $scope, $routeParams, $h
 					response = APIservice.getArticlesBySearch($scope.section_name, search_val);
 				}
 
-				response.success(function(result, status, headers, config) {
+				response.success(function (result, status, headers, config) {
 
 					//if the status is success and there are articles
 					if (result.status == 1 && result.data.length > 0) {
