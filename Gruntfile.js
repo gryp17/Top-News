@@ -5,6 +5,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks("grunt-contrib-watch");
 
 	//project configuration.
 	grunt.initConfig({
@@ -86,6 +87,17 @@ module.exports = function (grunt) {
 						'app/controllers/article.js',
 						'app/controllers/search.js'
 					]
+				}
+			}
+		},
+		//watch
+		watch: {
+			app_files: {
+				files: ['app/**/*.js'],
+				tasks: ['uglify'],
+				options: {
+					spawn: false,
+					interrupt: true
 				}
 			}
 		}
