@@ -1,4 +1,4 @@
-app.service('APIservice', function ($http) {
+app.service('APIservice', function ($http, $rootScope) {
 
 	/**
 	 * Used to fetch articles

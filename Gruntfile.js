@@ -81,6 +81,7 @@ module.exports = function (grunt) {
 						'app/services/API_service.js',
 						'app/services/search_service.js',
 						'app/filters/custom_filters.js',
+						'app/directives/scroll_top.js',
 						'app/controllers/home.js',
 						'app/controllers/archive.js',
 						'app/controllers/articles.js',

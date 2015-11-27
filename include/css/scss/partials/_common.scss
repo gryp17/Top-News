@@ -33,4 +33,14 @@ body{
 	@media screen and (max-width: 1000px){
 		width: 100%;
 	}
+	
+	#scroll-top-btn{
+		position: fixed;
+		display: none;
+		width: 50px;
+		height: 50px;
+		bottom: 50px;
+		right: 50px;
+	}
+	
 }

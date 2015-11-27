@@ -28,6 +28,9 @@
                     </div>
                 </section>
             </div>
+			
+			<div class="scroll-top"></div>
+			
 			<?php include 'templates/footer.php'; ?>
         </div>
     </body>
