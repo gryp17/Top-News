@@ -31,6 +31,10 @@
 		.views{
 			display: block;
 			float: right;
+			
+			&:hover{
+				cursor: default;
+			}
 		}
 	}
 
@@ -40,6 +44,14 @@
 
 	article{
 		text-align: justify;
+	}
+	
+	.back-btn{
+		float: right;
+		
+		@media (max-width: 400px){
+			width: 100%;
+		}
 	}
 
 }

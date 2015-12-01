@@ -224,10 +224,17 @@ body {
     #article-wrapper .info-wrapper .views {
       display: block;
       float: right; }
+      #article-wrapper .info-wrapper .views:hover {
+        cursor: default; }
   #article-wrapper > hr {
     border: solid 1px #cccccc; }
   #article-wrapper article {
     text-align: justify; }
+  #article-wrapper .back-btn {
+    float: right; }
+    @media (max-width: 400px) {
+      #article-wrapper .back-btn {
+        width: 100%; } }
 
 #archive-date-picker {
   width: 120px;

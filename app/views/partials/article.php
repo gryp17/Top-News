@@ -17,5 +17,7 @@
 
 		<hr>
 		<article ng-bind-html="article.content"></article>
+		
+		<a class="btn btn-default back-btn" href="javascript:window.history.back()">Go back</a>
 	</div>
 </div>
