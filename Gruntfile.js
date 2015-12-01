@@ -78,15 +78,10 @@ module.exports = function (grunt) {
 				files: {
 					'include/js/top-news.js': [
 						'app/app.js',
-						'app/services/API_service.js',
-						'app/services/search_service.js',
-						'app/filters/custom_filters.js',
-						'app/directives/scroll_top.js',
-						'app/controllers/home.js',
-						'app/controllers/archive.js',
-						'app/controllers/articles.js',
-						'app/controllers/article.js',
-						'app/controllers/search.js'
+						'app/services/*.js',
+						'app/filters/*.js',
+						'app/directives/*.js',
+						'app/controllers/*.js',
 					]
 				}
 			}
