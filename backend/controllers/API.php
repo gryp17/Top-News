@@ -6,6 +6,16 @@ class API extends Controller {
 		
 	}
 
+	private $response_type;
+
+	/**
+	 * List of available response types
+	 * TODO: add more types
+	 */
+	private $response_types = array(
+		'json'
+	);
+
 	/**
 	 * List of required parameters for each API function
 	 * also indicates the parameter type
@@ -48,6 +58,19 @@ class API extends Controller {
 			$params[$key] = $value;
 		}
 
+		#get the response_format
+		if (isset($params['format'])) {
+			#if the format is not valid set the default one (json)
+			if (in_array($params['format'], $this->response_types)) {
+				$this->response_type = $params['format'];
+			} else {
+				$this->response_type = 'json';
+				$this->sendResponse(0, "Invalid output format. Available formats: " . implode(', ', $this->response_types));
+			}
+		} else {
+			$this->response_type = 'json';
+		}
+
 		#check if the API call contains all the required params
 		if (isset($params['url'])) {
 			$function = array_pop(explode('/', $params['url']));
@@ -55,16 +78,16 @@ class API extends Controller {
 			foreach ($this->required_params[$function] as $param => $type) {
 				#check if the param exists
 				if (!isset($params[$param])) {
-					die(json_encode(array('status' => 0, 'error' => "Missing $param parameter.")));
+					$this->sendResponse(0, "Missing $param parameter.");
 				}
 
 				#check if the param meets the requirements
 				if ($this->checkParam($params[$param], $type) == false) {
-					die(json_encode(array('status' => 0, 'error' => "Invalid $param parameter.")));
+					$this->sendResponse(0, "Invalid $param parameter.");
 				}
 			}
 		} else {
-			die(json_encode(array('status' => 0, 'error' => "Invalid request.")));
+			$this->sendResponse(0, "Invalid request.");
 		}
 
 		return $params;
@@ -104,6 +127,31 @@ class API extends Controller {
 	}
 
 	/**
+	 * Outputs the AJAX response
+	 * @param int $status
+	 * @param array $data
+	 */
+	public function sendResponse($status, $data) {
+		$response = array('status' => $status);
+
+		if ($status == 1) {
+			if(!is_null($data)){
+				$response['data'] = $data;
+			}
+		} else {
+			$response['error'] = $data;
+		}
+
+		switch ($this->response_type) {
+			case 'json':
+				header('Content-Type: application/json');
+				die(json_encode($response));
+				break;
+			#TODO: add more types
+		}
+	}
+
+	/**
 	 * Returns all articles from the specified category
 	 * 
 	 * Required params:
@@ -127,12 +175,10 @@ class API extends Controller {
 
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getArticles($params['category'], $params['limit'], $params['offset']);
-			$result = array('status' => 1, 'data' => $data);
+			$this->sendResponse(1, $data);
 		} else {
-			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+			$this->sendResponse(0, Controller::ACCESS_DENIED);
 		}
-
-		die(json_encode($result));
 	}
 
 	/**
@@ -158,12 +204,10 @@ class API extends Controller {
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getArticlesBySearch($params['category'], $params['search_val']);
 
-			$result = array('status' => 1, 'data' => $data);
+			$this->sendResponse(1, $data);
 		} else {
-			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+			$this->sendResponse(0, Controller::ACCESS_DENIED);
 		}
-
-		die(json_encode($result));
 	}
 
 	/**
@@ -182,12 +226,10 @@ class API extends Controller {
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getArticlesByDate($params['date']);
 
-			$result = array('status' => 1, 'data' => $data);
+			$this->sendResponse(1, $data);
 		} else {
-			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+			$this->sendResponse(0, Controller::ACCESS_DENIED);
 		}
-
-		die(json_encode($result));
 	}
 
 	/**
@@ -210,12 +252,10 @@ class API extends Controller {
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getLatestArticleDate($params['category']);
 
-			$result = array('status' => 1, 'data' => $data);
+			$this->sendResponse(1, $data);
 		} else {
-			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+			$this->sendResponse(0, Controller::ACCESS_DENIED);
 		}
-
-		die(json_encode($result));
 	}
 
 	/**
@@ -232,12 +272,10 @@ class API extends Controller {
 
 			$articles_model = $this->load_model('Articles_model');
 			$data = $articles_model->getArticle($params['id']);
-			$result = array('status' => 1, 'data' => $data);
+			$this->sendResponse(1, $data);
 		} else {
-			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+			$this->sendResponse(0, Controller::ACCESS_DENIED);
 		}
-
-		die(json_encode($result));
 	}
 
 	/**
@@ -255,12 +293,10 @@ class API extends Controller {
 
 			$articles_model = $this->load_model('Articles_model');
 			$articles_model->addArticleView($params['id']);
-			$result = array('status' => 1);
+			$this->sendResponse(1);
 		} else {
-			$result = array('status' => 0, 'error' => Controller::ACCESS_DENIED);
+			$this->sendResponse(0, Controller::ACCESS_DENIED);
 		}
-
-		die(json_encode($result));
 	}
 
 }
