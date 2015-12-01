@@ -1,10 +1,5 @@
 $(document).ready(function () {
 
-	//menu hamburger click
-	$("#hamburger-button").click(function () {
-		$("#menu-options").slideToggle();
-	});
-
 	//currencies ticker fix
 	setTimeout(function () {
 		var source = $("#currency-exchange iframe").attr("src");

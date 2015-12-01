@@ -1,5 +1,4 @@
-
-<header class="row">
+<header class="row main-menu">
 
     <div class="col-lg-12" id="responsive-menu">
         <a href="#home" id="responsive-logo">
