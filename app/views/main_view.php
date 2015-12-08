@@ -16,16 +16,13 @@
             <div class="row">
 				<?php include 'templates/aside.php'; ?>
                 <section id="content-wrapper" class="col-sm-8 col-sm-pull-4">
-                    <div id="currency-exchange">
-						<?php include 'templates/currencies_ticker.php'; ?>
-                    </div>
-                    <div id="top-ad">
-
-                    </div>
+                    <div class="currency-exchange-bar"></div>
+					
+                    <div id="top-ad"></div>
+					
 					<?php include 'templates/search_bar.php'; ?>
-                    <div ng-view="">                        
-
-                    </div>
+					
+                    <div ng-view=""></div>
                 </section>
             </div>
 			

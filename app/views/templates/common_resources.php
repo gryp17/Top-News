@@ -7,5 +7,4 @@
 <!-- JS -->
 <script type="text/javascript" src="include/js/lib.js"></script>
 <script type="text/javascript" src="include/js/top-news.js"></script>
-<script type="text/javascript" src="include/js/scripts.js"></script>
 
