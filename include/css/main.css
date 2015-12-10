@@ -247,6 +247,8 @@ body {
   #user-menu #user-login, #user-menu #user-signup {
     padding: 0px;
     text-align: center; }
+    #user-menu #user-login a, #user-menu #user-login a:hover, #user-menu #user-signup a, #user-menu #user-signup a:hover {
+      text-decoration: none; }
 
 .aside-box {
   margin-top: 12px;

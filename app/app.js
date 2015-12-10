@@ -5,13 +5,15 @@ app.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
                 .when('/articles/:section_name', {
-                    templateUrl: 'app/views/partials/articles.php',
+                    templateUrl: 'app/views/partials/articles.php'
                 }).when('/archive', {
-                    templateUrl: 'app/views/partials/archive.php',
+                    templateUrl: 'app/views/partials/archive.php'
                 }).when('/article/:id', {
-                    templateUrl: 'app/views/partials/article.php',
+                    templateUrl: 'app/views/partials/article.php'
+				}).when('/signup', {
+                    templateUrl: 'app/views/partials/signup.php'
                 }).otherwise({
-					templateUrl: 'app/views/partials/home.php',
+					templateUrl: 'app/views/partials/home.php'
 				});
 }]);
 

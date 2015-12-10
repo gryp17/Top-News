@@ -5,6 +5,10 @@
 	#user-login, #user-signup{
 		padding: 0px;
 		text-align: center;
+		
+		a, a:hover{
+			text-decoration: none;
+		}
 	}
 }
 

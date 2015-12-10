@@ -4,7 +4,9 @@
             Login <img src="img/login-icon.png"/>
         </div>
         <div id="user-signup" class="col-xs-6">
-            Sign Up <img src="img/signup-icon.png"/>
+			<a href="#signup">
+				Sign Up <img src="img/signup-icon.png"/>
+			</a>
         </div>
     </div>
     <div id="aside-box1" class="aside-box">
