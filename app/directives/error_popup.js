@@ -1,8 +1,6 @@
 app.directive('errorPopup', function () {
 	return {
 		restrict: 'C',
-		replace: true,
-		templateUrl: 'app/views/directives/error_popup.php',
 		link: function (scope, element, attr) {
 
 			//get the closest input sibling
