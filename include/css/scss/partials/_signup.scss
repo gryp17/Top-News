@@ -1,3 +1,13 @@
 #signup-wrapper{
+	padding: 10px;
 	
+	input[type='text'], input[type='password']{
+		@extend .center;
+		width: 70%;
+		margin-top: 5px;
+		
+		@media (max-width: 430px){
+			width: 100%;
+		}
+	}
 }
