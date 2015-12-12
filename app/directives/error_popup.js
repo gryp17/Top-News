@@ -4,7 +4,7 @@ app.directive('errorPopup', function () {
 		link: function (scope, element, attr) {
 
 			//get the closest input sibling
-			var input = element.siblings('input[type="text"]');
+			var input = element.siblings('input');
 
 			//configure the popover
 			input.popover({

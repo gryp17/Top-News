@@ -1,10 +1,16 @@
 #signup-wrapper{
 	padding: 10px;
 	
+	.alert-info{
+		@extend .center-text;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	
 	input[type='text'], input[type='password']{
 		@extend .center;
 		width: 70%;
-		margin-top: 18px;
+		margin-top: 10px;
 		
 		@media (max-width: 430px){
 			width: 100%;

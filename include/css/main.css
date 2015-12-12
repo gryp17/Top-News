@@ -10,7 +10,7 @@ body {
 .center, #signup-wrapper input[type='text'], #signup-wrapper input[type='password'], #signup-wrapper input[type='button'] {
   margin: auto; }
 
-.center-text, .required-notification {
+.center-text, .required-notification, #signup-wrapper .alert-info {
   text-align: center; }
 
 .row {
@@ -256,9 +256,12 @@ body {
 
 #signup-wrapper {
   padding: 10px; }
+  #signup-wrapper .alert-info {
+    font-size: 15px;
+    font-weight: bold; }
   #signup-wrapper input[type='text'], #signup-wrapper input[type='password'] {
     width: 70%;
-    margin-top: 18px; }
+    margin-top: 10px; }
     @media (max-width: 430px) {
       #signup-wrapper input[type='text'], #signup-wrapper input[type='password'] {
         width: 100%; } }
