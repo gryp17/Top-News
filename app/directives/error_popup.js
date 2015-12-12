@@ -22,10 +22,19 @@ app.directive('errorPopup', function () {
 				if (newValue === true) {
 					//change the popover content in case there is more than 1 error assigned to this popover
 					input.data('bs.popover').options.content = attr.content;
-					console.log('show popup with message ' + attr.content);
+					
+					//add the input-error class and the focus event handler
+					input.addClass('input-error');
+					input.on('focus', function (){
+						input.addClass('input-error');
+					});
+					
 					input.popover('show');
 				} else {
-					console.log('hide popup');
+					//remove the input-error class and the focus event handler
+					input.removeClass('input-error');
+					input.off('focus');
+					
 					input.popover('hide');
 				}
 

@@ -4,10 +4,20 @@
 	input[type='text'], input[type='password']{
 		@extend .center;
 		width: 70%;
-		margin-top: 5px;
+		margin-top: 18px;
 		
 		@media (max-width: 430px){
 			width: 100%;
 		}
+	}
+	
+	.required-notification{
+		margin-top: 10px;
+	}
+	
+	input[type='button']{
+		@extend .center;
+		display: block;
+		margin-top: 10px;
 	}
 }

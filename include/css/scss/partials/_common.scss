@@ -25,15 +25,30 @@ body{
     padding: 0px;
 }
 
+.input-error{
+	border-color: red !important;
+	@include box-shadow(0px 0px 8px rgba(255, 0, 0, 0.6) !important);
+}
+
+.required-notification{
+	@extend .center-text;
+	font-size: 13px;
+	color: red;
+}
+
+.hidden-element{
+	visibility: hidden;
+}
+
 #main-wrapper{
     width: 1000px;
     min-height: 500px;
     background: rgba(255, 255, 255, 0.9);
-	
+
 	@media screen and (max-width: 1000px){
 		width: 100%;
 	}
-	
+
 	#scroll-top-btn{
 		position: fixed;
 		display: none;
@@ -42,5 +57,5 @@ body{
 		bottom: 50px;
 		right: 50px;
 	}
-	
+
 }
