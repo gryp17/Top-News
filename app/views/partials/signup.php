@@ -23,7 +23,7 @@
 
 		<div>
 			<div class="required-notification" ng-class="{'hidden-element': !signUpForm.$error.required}">All fields are required.</div>
-			<input type="button" class="btn btn-success" ng-disabled="signUpForm.$error.required" value="Sign up" ng-click="signUp()"/>		
+			<input type="button" class="btn btn-success" ng-disabled="signUpForm.$invalid" value="Sign up" ng-click="signUp()"/>		
 		</div>
 
 	</form>

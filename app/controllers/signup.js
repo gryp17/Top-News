@@ -8,9 +8,8 @@ app.controller("signupController", function ($rootScope, $scope, $routeParams, $
 	//trigger a validation error from the controller
 	/*
 	$timeout(function (){
-		$scope.signUpForm.username.$error.maxlength = true;
+		//$scope.signUpForm.username.$error.maxlength = true;
 	}, 500);
 	*/
-
-
+	
 });
