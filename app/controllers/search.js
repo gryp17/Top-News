@@ -3,8 +3,12 @@ app.controller("searchController", function ($rootScope, $scope, $routeParams, $
 	//default section
 	$scope.section_name = 'all news';
 
-	//get the section name every time the route changes
+	//clear the search input and get the section name every time the route changes
 	$rootScope.$on('$routeChangeSuccess', function () {
+		
+		//remove the text from the search input
+		searchService.setSearchVal('');
+		
 		if (typeof ($routeParams.section_name) !== 'undefined') {
 			$scope.section_name = $routeParams.section_name;
 		} else {

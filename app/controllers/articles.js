@@ -3,9 +3,6 @@ app.controller("articlesController", function ($rootScope, $scope, $routeParams,
 	//get the section name
 	$scope.section_name = $routeParams.section_name;
 
-	//remove the text from the search input
-	searchService.setSearchVal('');
-
 	//get the first batch of articles
 	var response = APIservice.getArticles($scope.section_name);
 	response.success(function (result, status, headers, config) {

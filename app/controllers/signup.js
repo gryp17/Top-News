@@ -1,7 +1,4 @@
-app.controller("signupController", function ($rootScope, $scope, $routeParams, $timeout, searchService, APIservice) {
-
-	//remove the text from the search input
-	searchService.setSearchVal('');
+app.controller("signupController", function ($rootScope, $scope, $routeParams, $timeout, APIservice) {
 
 	$scope.user_data = {};
 

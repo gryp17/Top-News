@@ -1,13 +1,10 @@
-app.controller("articleController", function ($rootScope, $scope, $routeParams, searchService, APIservice) {
+app.controller("articleController", function ($rootScope, $scope, $routeParams, APIservice) {
 
 	//get the section name
 	$scope.section_name = $routeParams.section_name;
 
 	//get the article id
 	$scope.article_id = $routeParams.id;
-
-	//remove the text from the search input
-	searchService.setSearchVal('');
 
 	//get the article data
 	var response = APIservice.getArticle($scope.article_id);

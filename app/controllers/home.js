@@ -1,7 +1,4 @@
-app.controller("homeController", function ($rootScope, $scope, $routeParams, searchService, APIservice) {
-
-	//remove the text from the search input
-	searchService.setSearchVal('');
+app.controller("homeController", function ($rootScope, $scope, $routeParams, APIservice) {
 
 	//remove the scroll event
 	$(window).unbind('scroll');
