@@ -46,6 +46,8 @@ body {
     height: 50px;
     bottom: 50px;
     right: 50px; }
+    #main-wrapper #scroll-top-btn:hover {
+      cursor: pointer; }
 
 #responsive-menu {
   background-color: #F8F8F8;
