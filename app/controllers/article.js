@@ -24,7 +24,4 @@ app.controller("articleController", function ($rootScope, $scope, $routeParams, 
 	APIservice.addArticleView($scope.article_id);
 
 
-
-
-
 });

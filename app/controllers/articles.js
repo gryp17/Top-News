@@ -1,4 +1,4 @@
-app.controller("articlesController", function ($rootScope, $scope, $routeParams, $http, searchService, APIservice) {
+app.controller("articlesController", function ($rootScope, $scope, $routeParams, $http, $window, searchService, APIservice) {
 
 	//get the section name
 	$scope.section_name = $routeParams.section_name;
@@ -25,11 +25,8 @@ app.controller("articlesController", function ($rootScope, $scope, $routeParams,
 	//prevent infinite loading
 	$scope.loading = false;
 
-	//on window scroll get more articles with lazy loading
-	//first unbind all scroll handlers in order to prevent conflict with the other sections
-	$(window).unbind('scroll');
-	$(window).scroll(function () {
-
+	//lazy loading logic
+	$scope.lazyLoading = function () {
 		//don't load more articles if there is an active search
 		var search_val = searchService.getSearchVal();
 		if (search_val.length >= 3) {
@@ -59,7 +56,14 @@ app.controller("articlesController", function ($rootScope, $scope, $routeParams,
 			});
 
 		}
-
+	};
+	
+	//on window scroll get more articles with lazy loading
+	angular.element($window).on('scroll', $scope.lazyLoading);
+	
+	//when destroying the scope unbind the lazy loading in order to stop it in other pages
+	$scope.$on('$destroy', function () {
+		angular.element($window).off('scroll', $scope.lazyLoading);
 	});
 
 

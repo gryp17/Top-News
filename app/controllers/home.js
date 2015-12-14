@@ -1,8 +1,5 @@
 app.controller("homeController", function ($rootScope, $scope, $routeParams, APIservice) {
 
-	//remove the scroll event
-	$(window).unbind('scroll');
-
 	//get the latest 6 articles
 	var response = APIservice.getArticles();
 	response.success(function (result, status, headers, config) {

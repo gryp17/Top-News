@@ -1,4 +1,4 @@
-app.controller("archiveController", function ($rootScope, $scope, $routeParams, searchService, APIservice) {
+app.controller("archiveController", function ($rootScope, $scope, $routeParams, $window, searchService, APIservice) {
 
 	//initialize the date picker
 	$scope.selected_date;
@@ -68,12 +68,8 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 	//prevent infinite loading
 	$scope.loading = false;
 
-
-	//on window scroll get more articles with lazy loading
-	//first unbind all scroll handlers in order to prevent conflict with the other sections
-	$(window).unbind('scroll');
-	$(window).scroll(function () {
-
+	//lazy loading logic
+	$scope.lazyLoading = function () {
 		//don't load more articles if there is an active search or date filter
 		var search_val = searchService.getSearchVal();
 		if (search_val.length >= 3 || typeof ($scope.selected_date) != 'undefined') {
@@ -103,7 +99,14 @@ app.controller("archiveController", function ($rootScope, $scope, $routeParams, 
 			});
 
 		}
+	};
 
+	//on window scroll get more articles with lazy loading
+	angular.element($window).on('scroll', $scope.lazyLoading);
+
+	//when destroying the scope unbind the lazy loading in order to stop it in other pages
+	$scope.$on('$destroy', function () {
+		angular.element($window).off('scroll', $scope.lazyLoading);
 	});
 
 });
