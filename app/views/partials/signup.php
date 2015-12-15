@@ -44,7 +44,7 @@
 		</div> 
 		
 		<div>
-			<input type="password" class="form-control" name="repeat_password" placeholder="Password" ng-model="user_data.repeat_password">
+			<input type="password" class="form-control" name="repeat_password" placeholder="Confirm password" ng-model="user_data.repeat_password">
 
 			<!-- passwords match error -->
 			<div class="error-popup" data-show="!passwords_match" data-content="The passwords don't match"></div>
